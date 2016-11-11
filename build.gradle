@@ -7,16 +7,18 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath 'org.cloudfoundry:cf-gradle-plugin:1.1.2'
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'cloudfoundry'
 
 jar {
 	baseName = 'skillsmapper'
-	version = '0.0.1-SNAPSHOT'
+	version = '0.1.0'
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -30,4 +32,12 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-neo4j')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+cloudfoundry {
+	space = "development"
+	file = file("build/libs/skillsmapper-0.1.0.jar")
+	uri = "skills-mapper.cfapps.io"
+	memory = 512
+	instances = 1
 }
