@@ -1,6 +1,7 @@
 buildscript {
 	ext {
-		springBootVersion = '1.4.2.RELEASE'
+		springBootVersion = '1.4.0.RELEASE'
+		neo4jOgmVersion = '2.0.4'
 	}
 	repositories {
 		mavenCentral()
@@ -13,7 +14,7 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
+apply plugin: 'spring-boot'
 apply plugin: 'cloudfoundry'
 
 jar {
@@ -27,11 +28,20 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-neo4j')
 	compile('org.springframework.boot:spring-boot-starter-web')
+	compile("org.springframework.boot:spring-boot-starter-data-rest")
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	compile("com.voodoodyne.jackson.jsog:jackson-jsog:1.1")
+	compile("org.neo4j:neo4j-ogm-http-driver:${neo4jOgmVersion}")
+	compile("org.hibernate:hibernate-validator")
+
+	testCompile("org.neo4j:neo4j-ogm-bolt-driver:${neo4jOgmVersion}")
+	testCompile("org.neo4j:neo4j-ogm-embedded-driver:${neo4jOgmVersion}")
+	testCompile('org.neo4j:neo4j-ogm-test:2.0.5')
 }
 
 cloudfoundry {
