@@ -1,3 +1,5 @@
+version = '0.1.0'
+
 ext {
     neo4jOgmVersion = '2.0.4'
 }
@@ -18,10 +20,14 @@ dependencies {
     testCompile('org.neo4j:neo4j-ogm-test:2.0.5')
 }
 
+jar {
+    baseName = 'skillsmapper-server'
+}
+
 cloudfoundry {
     space = "development"
-    file = file("build/libs/skillsmapper-0.1.0.jar")
-    uri = "skills-mapper.cfapps.io"
+    file = file("build/libs/skillsmapper-server-${version}.jar")
+    uri = "skills-mapper-server.cfapps.io"
     memory = 512
     instances = 1
 }

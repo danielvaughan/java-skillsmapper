@@ -1,9 +1,10 @@
+version = '0.1.0'
+
 dependencies {
     compileOnly 'com.google.gwt:gwt-user:2.8.0',
             'com.google.gwt:gwt-dev:2.8.0',
             'org.fusesource.restygwt:restygwt:2.2.0'
 }
-
 
 task compileGwt(dependsOn: classes, type: JavaExec) {
     ext.buildDir = "${project.buildDir}/gwt"
@@ -46,10 +47,16 @@ compileJava.dependsOn(processResources)
 
 jar.dependsOn compileGwt
 jar {
-    baseName = 'skillsmapper'
-    version = '0.1.0'
-
+    baseName = 'skillsmapper-client'
     into('static') {
         from compileGwt.buildDir
     }
+}
+
+cloudfoundry {
+    space = "development"
+    file = file("build/libs/skillsmapper-client-${version}.jar")
+    uri = "skills-mapper-client.cfapps.io"
+    memory = 512
+    instances = 1
 }

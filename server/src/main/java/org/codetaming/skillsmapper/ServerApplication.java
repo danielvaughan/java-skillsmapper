@@ -8,15 +8,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class ServerApplication {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(Application.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(ServerApplication.class);
 
     @Autowired
     PersonService personService;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ServerApplication.class, args);
     }
 
 }
