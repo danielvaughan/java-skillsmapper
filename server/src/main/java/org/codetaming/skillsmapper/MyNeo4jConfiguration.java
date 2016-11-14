@@ -27,7 +27,6 @@ public class MyNeo4jConfiguration extends Neo4jConfiguration {
                 .driverConfiguration()
                 .setDriverClassName("org.neo4j.ogm.drivers.http.driver.HttpDriver")
                 .setURI(URL);
-        System.out.println(config.toString());
         return config;
     }
 

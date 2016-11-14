@@ -1,53 +1,37 @@
 buildscript {
-	ext {
-		springBootVersion = '1.4.0.RELEASE'
-		neo4jOgmVersion = '2.0.4'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath 'org.cloudfoundry:cf-gradle-plugin:1.1.2'
-	}
+    ext {
+        springBootVersion = '1.4.0.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath 'org.cloudfoundry:cf-gradle-plugin:1.1.2'
+    }
 }
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'spring-boot'
-apply plugin: 'cloudfoundry'
+subprojects {
 
-jar {
-	baseName = 'skillsmapper'
-	version = '0.1.0'
-}
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'spring-boot'
+    apply plugin: 'cloudfoundry'
 
-repositories {
-	mavenCentral()
-}
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
 
-dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-neo4j')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile("org.springframework.boot:spring-boot-starter-data-rest")
+    repositories {
+        mavenCentral()
+    }
 
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+    }
 
-	compile("com.voodoodyne.jackson.jsog:jackson-jsog:1.1")
-	compile("org.neo4j:neo4j-ogm-http-driver:${neo4jOgmVersion}")
-	compile("org.hibernate:hibernate-validator")
+    task wrapper(type: Wrapper) {
+        gradleVersion = '3.1'
+    }
 
-	testCompile("org.neo4j:neo4j-ogm-bolt-driver:${neo4jOgmVersion}")
-	testCompile("org.neo4j:neo4j-ogm-embedded-driver:${neo4jOgmVersion}")
-	testCompile('org.neo4j:neo4j-ogm-test:2.0.5')
 }
 
-cloudfoundry {
-	space = "development"
-	file = file("build/libs/skillsmapper-0.1.0.jar")
-	uri = "skills-mapper.cfapps.io"
-	memory = 512
-	instances = 1
-}
