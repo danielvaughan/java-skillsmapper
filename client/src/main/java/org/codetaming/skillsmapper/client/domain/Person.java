@@ -1,18 +1,6 @@
-package org.codetaming.skillsmapper.domain;
+package org.codetaming.skillsmapper.client.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.NodeEntity;
-
-@NodeEntity
 public class Person {
-
-    @GraphId
-    Long id;
-
-    private String name;
-    private Long created;
-    private String imageUrl;
-    private String hash;
 
     public Long getId() {
         return id;
@@ -22,9 +10,17 @@ public class Person {
         this.id = id;
     }
 
+    private Long id;
+
+    private String name;
+
     public Long getCreated() {
         return created;
     }
+
+    private Long created;
+    private String imageUrl;
+    private String hash;
 
     public String getImageUrl() {
         return imageUrl;
