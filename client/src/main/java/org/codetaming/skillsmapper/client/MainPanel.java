@@ -1,4 +1,4 @@
-package org.codetaming.skillsmapper.client.widgets;
+package org.codetaming.skillsmapper.client;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;
@@ -7,6 +7,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
 
 public class MainPanel extends Composite {
 
@@ -15,12 +16,12 @@ public class MainPanel extends Composite {
     private SimpleEventBus eventBus;
 
     @UiField(provided = true)
-    PeopleListWidget peopleListWidget;
+    PeopleViewWidget peopleViewWidget;
 
     @Inject
-    public MainPanel(SimpleEventBus eventBus, PeopleListWidget peopleListWidget) {
+    public MainPanel(SimpleEventBus eventBus, PeopleViewWidget peopleViewWidget) {
         this.eventBus = eventBus;
-        this.peopleListWidget = peopleListWidget;
+        this.peopleViewWidget = peopleViewWidget;
         initWidget(uiBinder.createAndBindUi(this));
     }
 

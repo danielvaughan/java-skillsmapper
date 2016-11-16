@@ -1,4 +1,4 @@
-package org.codetaming.skillsmapper.client.domain;
+package org.codetaming.skillsmapper.client.model;
 
 import java.util.List;
 

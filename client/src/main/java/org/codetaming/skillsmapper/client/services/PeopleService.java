@@ -1,7 +1,7 @@
 package org.codetaming.skillsmapper.client.services;
 
-import org.codetaming.skillsmapper.client.domain.Hal;
-import org.codetaming.skillsmapper.client.domain.People;
+import org.codetaming.skillsmapper.client.model.Hal;
+import org.codetaming.skillsmapper.client.model.People;
 import org.fusesource.restygwt.client.MethodCallback;
 import org.fusesource.restygwt.client.RestService;
 
