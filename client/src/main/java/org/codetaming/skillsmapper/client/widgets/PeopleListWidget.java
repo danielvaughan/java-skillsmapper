@@ -14,8 +14,8 @@ import org.codetaming.skillsmapper.client.domain.Person;
 import org.codetaming.skillsmapper.client.services.PeopleService;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
-import org.gwtbootstrap3.client.ui.LinkedGroup;
-import org.gwtbootstrap3.client.ui.LinkedGroupItem;
+import org.gwtbootstrap3.client.ui.*;
+import org.gwtbootstrap3.client.ui.constants.ColumnSize;
 
 import java.util.logging.Logger;
 
@@ -57,7 +57,17 @@ public class PeopleListWidget extends Composite {
     }
 
     private void addItem(final Person person) {
-        LinkedGroupItem linkedGroupItem = new LinkedGroupItem(person.getName(), person.getImageUrl());
-        linkedGroup.add(linkedGroupItem);
+        ListGroupItem listGroupItem = new ListGroupItem();
+        Row row = new Row();
+        String imageUrl = person.getImageUrl() == null ? "http://common.gcscc.site/img/silhouette.png" : person.getImageUrl();
+        Image image = new Image(imageUrl);
+        image.setResponsive(true);
+        image.setHeight("50px");
+        image.setAltText("Picture of " + person.getName());
+        image.addStyleName("person-thumbnail");
+        row.add(new Column(ColumnSize.LG_3, image));
+        row.add(new Column(ColumnSize.LG_9, new LinkedGroupItemText(person.getName())));
+        listGroupItem.add(row);
+        linkedGroup.add(listGroupItem);
     }
 }
