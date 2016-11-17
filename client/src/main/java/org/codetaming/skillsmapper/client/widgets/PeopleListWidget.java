@@ -10,12 +10,10 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import org.codetaming.skillsmapper.client.model.Hal;
 import org.codetaming.skillsmapper.client.model.People;
-import org.codetaming.skillsmapper.client.model.Person;
 import org.codetaming.skillsmapper.client.services.PeopleService;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
-import org.gwtbootstrap3.client.ui.*;
-import org.gwtbootstrap3.client.ui.constants.ColumnSize;
+import org.gwtbootstrap3.client.ui.LinkedGroup;
 
 import java.util.logging.Logger;
 
@@ -51,23 +49,9 @@ public class PeopleListWidget extends Composite {
             @Override
             public void onSuccess(Method method, Hal<People> response) {
                 LOGGER.info(response.getPage().toString());
-                response.get_embedded().getPeople().forEach(person -> addItem(person));
+                response.get_embedded().getPeople().forEach(person -> linkedGroup.add(new PersonListItemWidget(person, eventBus)));
+                ;
             }
         });
-    }
-
-    private void addItem(final Person person) {
-        ListGroupItem listGroupItem = new ListGroupItem();
-        Row row = new Row();
-        String imageUrl = person.getImageUrl() == null ? "http://common.gcscc.site/img/silhouette.png" : person.getImageUrl();
-        Image image = new Image(imageUrl);
-        image.setResponsive(true);
-        image.setHeight("50px");
-        image.setAltText("Picture of " + person.getName());
-        image.addStyleName("person-thumbnail");
-        row.add(new Column(ColumnSize.LG_3, image));
-        row.add(new Column(ColumnSize.LG_9, new LinkedGroupItemText(person.getName())));
-        listGroupItem.add(row);
-        linkedGroup.add(listGroupItem);
     }
 }

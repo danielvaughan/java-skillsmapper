@@ -36,13 +36,12 @@ public class SkillsMapperGwt implements EntryPoint {
 
     private void onModuleLoad2() {
         try {
+            injector.getLoggingController();
             RootPanel.get().add(injector.getMainPanel());
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error in onModuleLoad2 \n", e);
         }
     }
-
-
 
     private void useCorrectRequestBaseUrl() {
         if (isDevelopmentMode()) {
