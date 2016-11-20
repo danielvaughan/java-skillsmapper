@@ -2,6 +2,7 @@ package org.codetaming.skillsmapper.services;
 
 import org.codetaming.skillsmapper.MyNeo4jTestConfiguration;
 import org.codetaming.skillsmapper.ProtoEmbeddedTest;
+import org.codetaming.skillsmapper.domain.ImageInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class ImageServiceTest extends ProtoEmbeddedTest {
     @Test
     @DirtiesContext
     public void testGetByHash() {
-        String url = service.getByHash(HASH);
-        assertNotNull(url);
+        ImageInfo imageInfo = service.getByHash(HASH);
+        assertNotNull(imageInfo.getImageUrl());
     }
 
 }
