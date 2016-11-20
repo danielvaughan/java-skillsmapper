@@ -6,6 +6,7 @@ import com.google.gwt.inject.client.Ginjector;
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
 import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
+import org.codetaming.skillsmapper.client.widgets.ProfileImageWidget;
 
 @GinModules(SkillsMapperGwtGinModule.class)
 public interface SkillsMapperGwtAppGinjector extends Ginjector {
@@ -13,6 +14,8 @@ public interface SkillsMapperGwtAppGinjector extends Ginjector {
     SimpleEventBus getEventBus();
 
     MainPanel getMainPanel();
+
+    ProfileImageWidget getProfileImageWidget();
 
     PeopleViewWidget getPeopleViewWidget();
 

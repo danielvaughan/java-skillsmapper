@@ -18,6 +18,9 @@
                     <b:Column size="SM_4" addStyleNames="max-height">
                         <v:PeopleViewWidget ui:field="peopleViewWidget"/>
                     </b:Column>
+                    <b:Column size="SM_8" addStyleNames="max-height">
+                        <v:ProfileViewWidget ui:field="profileViewWidget"/>
+                    </b:Column>
                 </b:Row>
             </b:Container>
         </b:Container>

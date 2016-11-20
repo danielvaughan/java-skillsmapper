@@ -1,27 +1,29 @@
 package org.codetaming.skillsmapper.services;
 
+import org.codetaming.skillsmapper.domain.ImageInfo;
+import org.codetaming.skillsmapper.domain.Person;
 import org.codetaming.skillsmapper.repositories.PersonRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Service
 @Transactional
-@RequestMapping("/image")
 public class ImageService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ImageService.class);
 
     @Autowired
     PersonRepository personRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public
-    @ResponseBody
-    String getByHash(@RequestParam(value = "hash", required = true) String hash) {
-        return personRepository.findByHash(hash).getImageUrl();
+    public ImageInfo getByHash(String hash) {
+        Person person = personRepository.findByHash(hash);
+        ImageInfo imageInfo = new ImageInfo();
+        imageInfo.setName(person.getName());
+        imageInfo.setImageUrl(person.getImageUrl() == null ? "http://common.gcscc.site/img/silhouette.png" : person.getImageUrl());
+        return imageInfo;
     }
 
 }

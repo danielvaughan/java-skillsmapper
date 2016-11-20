@@ -6,6 +6,7 @@ import com.google.inject.Singleton;
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
 import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
+import org.codetaming.skillsmapper.client.widgets.ProfileImageWidget;
 
 public class SkillsMapperGwtGinModule extends AbstractGinModule {
 
@@ -16,5 +17,6 @@ public class SkillsMapperGwtGinModule extends AbstractGinModule {
         bind(MainPanel.class).in(Singleton.class);
         bind(PeopleListWidget.class).in(Singleton.class);
         bind(PeopleViewWidget.class).in(Singleton.class);
+        bind(ProfileImageWidget.class).in(Singleton.class);
     }
 }

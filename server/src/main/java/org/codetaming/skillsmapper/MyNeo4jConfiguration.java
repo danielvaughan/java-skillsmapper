@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableScheduling
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"org.codetaming.skillsmapper.services"})
+@ComponentScan(basePackages = {"org.codetaming.skillsmapper"})
 @Configuration
 @EnableNeo4jRepositories(basePackages = "org.codetaming.skillsmapper.repositories")
 public class MyNeo4jConfiguration extends Neo4jConfiguration {
