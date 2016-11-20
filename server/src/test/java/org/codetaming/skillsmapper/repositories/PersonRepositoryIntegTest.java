@@ -2,7 +2,6 @@ package org.codetaming.skillsmapper.repositories;
 
 import org.codetaming.skillsmapper.MyNeo4jConfiguration;
 import org.codetaming.skillsmapper.domain.Person;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +19,11 @@ import static org.junit.Assert.assertNotNull;
 public class PersonRepositoryIntegTest {
 
     private static final String NAME = "Daniel Vaughan";
+    private static final String HASH = "b4f06f0d4337c3af720f37ef402c1ad9d6f3058f";
 
     @Autowired
     private PersonRepository instance;
-
-    public PersonRepositoryIntegTest() {
-    }
-
-    @Before
-    public void initialize() {
-
-    }
-
+    
     @Test
     @DirtiesContext
     public void testFindByName() {
@@ -40,4 +32,15 @@ public class PersonRepositoryIntegTest {
         assertEquals(NAME, result.getName());
         System.out.println(result.toString());
     }
+
+    @Test
+    @DirtiesContext
+    public void testFindByHash() {
+        Person result = instance.findByHash(HASH);
+        assertNotNull(result);
+        assertEquals(NAME, result.getName());
+        assertEquals(HASH, result.getHash());
+        System.out.println(result.toString());
+    }
 }
+

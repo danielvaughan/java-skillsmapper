@@ -9,4 +9,5 @@ public interface PersonRepository extends GraphRepository<Person> {
 
     Person findByName(String name);
 
+    Person findByHash(String hash);
 }
