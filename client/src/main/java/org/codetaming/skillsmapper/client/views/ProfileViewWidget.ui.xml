@@ -3,7 +3,22 @@
              xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
              xmlns:w="urn:import:org.codetaming.skillsmapper.client.widgets">
     <b:Container fluid="true">
-        <b:Label ui:field="hashLabel"></b:Label>
-        <w:ProfileImageWidget ui:field="profileImageWidget"></w:ProfileImageWidget>
+        <b:Panel addStyleNames="max-height pad-bottom">
+            <b:PanelHeader>
+                <b:Heading size="H3" text="Profile"/>
+            </b:PanelHeader>
+            <b:PanelBody addStyleNames="scrollable">
+                <b:Container fluid="true">
+                    <b:Row>
+                        <b:Column size="MD_2">
+                            <w:ProfileImageWidget ui:field="profileImageWidget"></w:ProfileImageWidget>
+                        </b:Column>
+                        <b:Column size="MD_10">
+                            <w:ProfileDetailsWidget ui:field="profileDetailsWidget"></w:ProfileDetailsWidget>
+                        </b:Column>
+                    </b:Row>
+                </b:Container>
+            </b:PanelBody>
+        </b:Panel>
     </b:Container>
 </ui:UiBinder>

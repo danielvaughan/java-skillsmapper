@@ -9,9 +9,9 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
+import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileImageWidget;
 import org.codetaming.skillsmapper.client.widgets.ProtoWidget;
-import org.gwtbootstrap3.client.ui.Label;
 
 import java.util.logging.Logger;
 
@@ -23,16 +23,17 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
 
     private EventBus eventBus;
 
-    @UiField
-    Label hashLabel;
-
     @UiField(provided = true)
     ProfileImageWidget profileImageWidget;
 
+    @UiField(provided = true)
+    ProfileDetailsWidget profileDetailsWidget;
+
     @Inject
-    public ProfileViewWidget(SimpleEventBus eventBus, ProfileImageWidget profileImageWidget) {
+    public ProfileViewWidget(SimpleEventBus eventBus, ProfileImageWidget profileImageWidget, ProfileDetailsWidget profileDetailsWidget) {
         this.eventBus = eventBus;
         this.profileImageWidget = profileImageWidget;
+        this.profileDetailsWidget = profileDetailsWidget;
         initWidget(uiBinder.createAndBindUi(this));
         initListeners();
     }
@@ -43,7 +44,7 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
 
     @Override
     public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
-        hashLabel.setText(selectPersonEvent.getHash());
+
     }
 
     interface Binder extends UiBinder<Widget, ProfileViewWidget> {

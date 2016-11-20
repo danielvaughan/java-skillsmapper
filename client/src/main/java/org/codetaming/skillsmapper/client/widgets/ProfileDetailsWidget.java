@@ -3,30 +3,39 @@ package org.codetaming.skillsmapper.client.widgets;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
-import org.codetaming.skillsmapper.client.model.ImageInfo;
-import org.codetaming.skillsmapper.client.services.ImageService;
+import org.codetaming.skillsmapper.client.model.Person;
+import org.codetaming.skillsmapper.client.services.PersonService;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
-import org.gwtbootstrap3.client.ui.Image;
+import org.gwtbootstrap3.client.ui.Heading;
 
 import java.util.logging.Logger;
 
-public class ProfileImageWidget extends ProtoWidget implements SelectPersonEventHandler {
+public class ProfileDetailsWidget extends ProtoWidget implements SelectPersonEventHandler {
 
-    private static final Logger LOGGER = Logger.getLogger("ProfileImageWidget");
+    private static final Logger LOGGER = Logger.getLogger("ProfileDetailsWidget");
 
     private EventBus eventBus;
 
-    private Image image = new Image();
+    private static ProfileDetailsWidget.Binder uiBinder = GWT.create(ProfileDetailsWidget.Binder.class);
+
+    @UiField
+    Heading nameHeading;
 
     @Inject
-    public ProfileImageWidget(SimpleEventBus eventBus) {
+    public ProfileDetailsWidget(SimpleEventBus eventBus) {
         this.eventBus = eventBus;
-        initWidget(image);
+        initWidget(uiBinder.createAndBindUi(this));
         initListeners();
+    }
+
+    interface Binder extends UiBinder<Widget, ProfileDetailsWidget> {
     }
 
     private void initListeners() {
@@ -39,18 +48,16 @@ public class ProfileImageWidget extends ProtoWidget implements SelectPersonEvent
     }
 
     private void reload(String hash) {
-        ImageService imageService = GWT.create(ImageService.class);
-        imageService.getByHash(hash, new MethodCallback<ImageInfo>() {
+        PersonService personService = GWT.create(PersonService.class);
+        personService.getByHash(hash, new MethodCallback<Person>() {
             @Override
             public void onFailure(final Method method, final Throwable exception) {
                 LOGGER.severe(exception.getMessage());
             }
 
             @Override
-            public void onSuccess(Method method, ImageInfo imageInfo) {
-                LOGGER.info("Setting image url to: " + imageInfo.getImageUrl());
-                image.setUrl(imageInfo.getImageUrl());
-                image.setTitle(imageInfo.getName());
+            public void onSuccess(Method method, Person person) {
+                nameHeading.setText(person.getName());
             }
         });
     }
