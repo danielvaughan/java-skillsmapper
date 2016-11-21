@@ -2,12 +2,28 @@ package org.codetaming.skillsmapper.domain;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Relationship;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @NodeEntity
 public class Person {
 
     @GraphId
     Long id;
+
+    @Relationship(type = "I_AM_INTERESTED_IN", direction = Relationship.OUTGOING)
+    private Set<Tag> interested = new HashSet<>();
+
+    @Relationship(type = "I_AM_LEARNING", direction = Relationship.OUTGOING)
+    private Set<Tag> learning = new HashSet<>();
+
+    @Relationship(type = "I_AM_USING", direction = Relationship.OUTGOING)
+    private Set<Tag> using = new HashSet<>();
+
+    @Relationship(type = "I_HAVE_USED", direction = Relationship.OUTGOING)
+    private Set<Tag> used = new HashSet<>();
 
     private String name;
     private Long created;
@@ -63,5 +79,37 @@ public class Person {
 
     public void setCreated(Long created) {
         this.created = created;
+    }
+
+    public Set<Tag> getUsing() {
+        return using;
+    }
+
+    public void addUsing(Tag tag) {
+        using.add(tag);
+    }
+
+    public Set<Tag> getInterested() {
+        return interested;
+    }
+
+    public Set<Tag> getLearning() {
+        return learning;
+    }
+    
+    public Set<Tag> getUsed() {
+        return used;
+    }
+
+    public void addInterested(Tag tag) {
+        interested.add(tag);
+    }
+
+    public void addLearning(Tag tag) {
+        learning.add(tag);
+    }
+
+    public void addUsed(Tag tag) {
+        used.add(tag);
     }
 }

@@ -1,7 +1,9 @@
 package org.codetaming.skillsmapper;
 
 import org.codetaming.skillsmapper.domain.Person;
+import org.codetaming.skillsmapper.domain.Tag;
 import org.codetaming.skillsmapper.repositories.PersonRepository;
+import org.codetaming.skillsmapper.repositories.TagRepository;
 import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,9 +12,13 @@ public class ProtoEmbeddedTest {
     protected static final String NAME = "Daniel Vaughan";
     protected static final String HASH = "7dcb0cd247aa94896e665c337696a7be18d387a78d6d55b4854b7ff7d5925042";
     protected static final String IMAGE_URL = "http://common.gcscc.site/img/silhouette.png";
+    protected static final String TAG_NAME = "java";
 
     @Autowired
-    protected PersonRepository instance;
+    protected PersonRepository personRepository;
+
+    @Autowired
+    protected TagRepository tagRepository;
 
     @Before
     public void initialize() {
@@ -21,6 +27,13 @@ public class ProtoEmbeddedTest {
         person.setName(NAME);
         person.setHash(HASH);
         person.setImageUrl(IMAGE_URL);
-        instance.save(person);
+        Tag tag = new Tag();
+        tag.setName(TAG_NAME);
+        tagRepository.save(tag);
+        person.addInterested(tag);
+        person.addLearning(tag);
+        person.addUsing(tag);
+        person.addUsed(tag);
+        personRepository.save(person);
     }
 }

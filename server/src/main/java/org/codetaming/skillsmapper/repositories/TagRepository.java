@@ -7,4 +7,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "tag", path = "tags")
 public interface TagRepository extends GraphRepository<Tag> {
 
+    Tag findByName(String name);
 }

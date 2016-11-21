@@ -2,7 +2,7 @@ package org.codetaming.skillsmapper.repositories;
 
 import org.codetaming.skillsmapper.MyNeo4jTestConfiguration;
 import org.codetaming.skillsmapper.ProtoEmbeddedTest;
-import org.codetaming.skillsmapper.domain.Person;
+import org.codetaming.skillsmapper.domain.Tag;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,21 +16,14 @@ import static org.junit.Assert.assertNotNull;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = MyNeo4jTestConfiguration.class)
 @ActiveProfiles(profiles = "test")
-public class PersonRepositoryTest extends ProtoEmbeddedTest {
+public class TagRepositoryTest extends ProtoEmbeddedTest {
 
     @Test
     @DirtiesContext
     public void testFindByName() {
-        Person result = personRepository.findByName(NAME);
+        Tag result = tagRepository.findByName(TAG_NAME);
         assertNotNull(result);
-        assertEquals(NAME, result.getName());
+        assertEquals(TAG_NAME, result.getName());
     }
 
-    @Test
-    @DirtiesContext
-    public void testFindByHash() {
-        Person result = personRepository.findByHash(HASH);
-        assertNotNull(result);
-        assertEquals(NAME, result.getName());
-    }
 }
