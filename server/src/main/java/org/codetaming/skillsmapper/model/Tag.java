@@ -1,4 +1,4 @@
-package org.codetaming.skillsmapper.domain;
+package org.codetaming.skillsmapper.model;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;

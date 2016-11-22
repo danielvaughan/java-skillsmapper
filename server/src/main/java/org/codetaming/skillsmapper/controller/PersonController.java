@@ -1,6 +1,6 @@
 package org.codetaming.skillsmapper.controller;
 
-import org.codetaming.skillsmapper.domain.Person;
+import org.codetaming.skillsmapper.model.Person;
 import org.codetaming.skillsmapper.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,7 @@
 package org.codetaming.skillsmapper.services;
 
 import org.codetaming.skillsmapper.ProtoEmbeddedTest;
-import org.codetaming.skillsmapper.domain.Tag;
+import org.codetaming.skillsmapper.model.Tag;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;

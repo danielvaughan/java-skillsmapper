@@ -1,6 +1,6 @@
 package org.codetaming.skillsmapper.controller;
 
-import org.codetaming.skillsmapper.domain.ImageInfo;
+import org.codetaming.skillsmapper.model.ImageInfo;
 import org.codetaming.skillsmapper.services.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

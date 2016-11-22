@@ -1,7 +1,7 @@
 package org.codetaming.skillsmapper;
 
-import org.codetaming.skillsmapper.domain.Person;
-import org.codetaming.skillsmapper.domain.Tag;
+import org.codetaming.skillsmapper.model.Person;
+import org.codetaming.skillsmapper.model.Tag;
 import org.codetaming.skillsmapper.repositories.PersonRepository;
 import org.codetaming.skillsmapper.repositories.TagRepository;
 import org.junit.Before;

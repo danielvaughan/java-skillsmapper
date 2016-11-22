@@ -8,6 +8,7 @@ import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
 import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileImageWidget;
+import org.codetaming.skillsmapper.client.widgets.SkillsWidget;
 
 @GinModules(SkillsMapperGwtGinModule.class)
 public interface SkillsMapperGwtAppGinjector extends Ginjector {
@@ -23,6 +24,8 @@ public interface SkillsMapperGwtAppGinjector extends Ginjector {
     PeopleViewWidget getPeopleViewWidget();
 
     PeopleListWidget getPeopleListWidget();
+
+    SkillsWidget getSkillsWidget();
 
     LoggingController getLoggingController();
 }

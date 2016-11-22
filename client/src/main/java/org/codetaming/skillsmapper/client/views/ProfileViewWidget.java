@@ -12,6 +12,7 @@ import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileImageWidget;
 import org.codetaming.skillsmapper.client.widgets.ProtoWidget;
+import org.codetaming.skillsmapper.client.widgets.SkillsWidget;
 
 import java.util.logging.Logger;
 
@@ -29,11 +30,15 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
     @UiField(provided = true)
     ProfileDetailsWidget profileDetailsWidget;
 
+    @UiField(provided = true)
+    SkillsWidget skillsWidget;
+
     @Inject
-    public ProfileViewWidget(SimpleEventBus eventBus, ProfileImageWidget profileImageWidget, ProfileDetailsWidget profileDetailsWidget) {
+    public ProfileViewWidget(SimpleEventBus eventBus, ProfileImageWidget profileImageWidget, ProfileDetailsWidget profileDetailsWidget, SkillsWidget skillsWidget) {
         this.eventBus = eventBus;
         this.profileImageWidget = profileImageWidget;
         this.profileDetailsWidget = profileDetailsWidget;
+        this.skillsWidget = skillsWidget;
         initWidget(uiBinder.createAndBindUi(this));
         initListeners();
     }

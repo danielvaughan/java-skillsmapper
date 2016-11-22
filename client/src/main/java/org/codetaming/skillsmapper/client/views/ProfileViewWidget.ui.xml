@@ -17,6 +17,11 @@
                             <w:ProfileDetailsWidget ui:field="profileDetailsWidget"></w:ProfileDetailsWidget>
                         </b:Column>
                     </b:Row>
+                    <b:Row>
+                        <b:Column size="MD_12">
+                            <w:SkillsWidget ui:field="skillsWidget"></w:SkillsWidget>
+                        </b:Column>
+                    </b:Row>
                 </b:Container>
             </b:PanelBody>
         </b:Panel>

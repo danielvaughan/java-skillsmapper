@@ -1,7 +1,7 @@
 package org.codetaming.skillsmapper.services;
 
-import org.codetaming.skillsmapper.domain.ImageInfo;
-import org.codetaming.skillsmapper.domain.Person;
+import org.codetaming.skillsmapper.model.ImageInfo;
+import org.codetaming.skillsmapper.model.Person;
 import org.codetaming.skillsmapper.repositories.PersonRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
