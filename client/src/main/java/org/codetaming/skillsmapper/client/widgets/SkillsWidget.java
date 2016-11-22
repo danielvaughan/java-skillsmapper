@@ -24,13 +24,30 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
     private EventBus eventBus;
 
     @UiField
-    TagBoxWidget tagBoxWidget;
+    TagBoxWidget interestedTagBoxWidget;
+
+    @UiField
+    TagBoxWidget learningTagBoxWidget;
+
+    @UiField
+    TagBoxWidget usingTagBoxWidget;
+
+    @UiField
+    TagBoxWidget usedTagBoxWidget;
 
     @Inject
     public SkillsWidget(SimpleEventBus eventBus) {
         this.eventBus = eventBus;
         initWidget(uiBinder.createAndBindUi(this));
+        initHeaders();
         initListeners();
+    }
+
+    private void initHeaders() {
+        interestedTagBoxWidget.setHeading("Interested in");
+        learningTagBoxWidget.setHeading("Learning");
+        usingTagBoxWidget.setHeading("Using");
+        usedTagBoxWidget.setHeading("Has Used");
     }
 
     interface Binder extends UiBinder<Widget, SkillsWidget> {
@@ -46,16 +63,47 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
     public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
         SkillsService skillsService = GWT.create(SkillsService.class);
         skillsService.getInterestedInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
-
             @Override
             public void onFailure(Method method, Throwable exception) {
-                LOGGER.severe("Error getting skills: " + exception.getMessage());
+                LOGGER.severe("Error getting interested skills: " + exception.getMessage());
             }
 
             @Override
             public void onSuccess(Method method, Set<Tag> response) {
-                tagBoxWidget.setTags(response);
-                LOGGER.info(response.toString());
+                interestedTagBoxWidget.setTags(response);
+            }
+        });
+        skillsService.getLearningInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
+            @Override
+            public void onFailure(Method method, Throwable exception) {
+                LOGGER.severe("Error getting learning skills: " + exception.getMessage());
+            }
+
+            @Override
+            public void onSuccess(Method method, Set<Tag> response) {
+                learningTagBoxWidget.setTags(response);
+            }
+        });
+        skillsService.getUsingInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
+            @Override
+            public void onFailure(Method method, Throwable exception) {
+                LOGGER.severe("Error getting using skills: " + exception.getMessage());
+            }
+
+            @Override
+            public void onSuccess(Method method, Set<Tag> response) {
+                usingTagBoxWidget.setTags(response);
+            }
+        });
+        skillsService.getUsedInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
+            @Override
+            public void onFailure(Method method, Throwable exception) {
+                LOGGER.severe("Error getting used skills: " + exception.getMessage());
+            }
+
+            @Override
+            public void onSuccess(Method method, Set<Tag> response) {
+                usedTagBoxWidget.setTags(response);
             }
         });
     }

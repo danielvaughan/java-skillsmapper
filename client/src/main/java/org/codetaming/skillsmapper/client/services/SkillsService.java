@@ -14,4 +14,16 @@ public interface SkillsService extends RestService {
     @GET
     @Path("http://localhost:9000/skills/interested/{hash}")
     void getInterestedInByHash(@PathParam("hash") String hash, MethodCallback<Set<Tag>> callback);
+
+    @GET
+    @Path("http://localhost:9000/skills/learning/{hash}")
+    void getLearningInByHash(@PathParam("hash") String hash, MethodCallback<Set<Tag>> callback);
+
+    @GET
+    @Path("http://localhost:9000/skills/using/{hash}")
+    void getUsingInByHash(@PathParam("hash") String hash, MethodCallback<Set<Tag>> callback);
+
+    @GET
+    @Path("http://localhost:9000/skills/used/{hash}")
+    void getUsedInByHash(@PathParam("hash") String hash, MethodCallback<Set<Tag>> callback);
 }

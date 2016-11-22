@@ -5,7 +5,18 @@
     <b:Container fluid="true">
         <b:Row>
             <b:Column size="MD_6">
-                <w:TagBoxWidget ui:field="tagBoxWidget"></w:TagBoxWidget>
+                <w:TagBoxWidget ui:field="interestedTagBoxWidget"></w:TagBoxWidget>
+            </b:Column>
+            <b:Column size="MD_6">
+                <w:TagBoxWidget ui:field="learningTagBoxWidget"></w:TagBoxWidget>
+            </b:Column>
+        </b:Row>
+        <b:Row>
+            <b:Column size="MD_6">
+                <w:TagBoxWidget ui:field="usingTagBoxWidget"></w:TagBoxWidget>
+            </b:Column>
+            <b:Column size="MD_6">
+                <w:TagBoxWidget ui:field="usedTagBoxWidget"></w:TagBoxWidget>
             </b:Column>
         </b:Row>
     </b:Container>

@@ -1,9 +1,16 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
+
+    <ui:style type='org.codetaming.skillsmapper.client.widgets.TagBoxWidget.MyStyle'>
+        .spacing{
+            margin-right: 5px;
+        }
+    </ui:style>
+
     <b:Panel addStyleNames="max-height pad-bottom">
         <b:PanelHeader>
-            <b:Heading size="H3"/>
+            <b:Heading size="H3" ui:field="heading"/>
         </b:PanelHeader>
         <b:PanelBody addStyleNames="scrollable" ui:field="panelBody">
         </b:PanelBody>
