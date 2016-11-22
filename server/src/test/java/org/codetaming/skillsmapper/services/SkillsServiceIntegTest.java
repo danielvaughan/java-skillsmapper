@@ -1,6 +1,6 @@
 package org.codetaming.skillsmapper.services;
 
-import org.codetaming.skillsmapper.ProtoEmbeddedTest;
+import org.codetaming.skillsmapper.ProtoIntegrationTest;
 import org.codetaming.skillsmapper.domain.Tag;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import java.util.Set;
 
 import static junit.framework.TestCase.assertFalse;
 
-public class SkillsServiceTest extends ProtoEmbeddedTest {
+public class SkillsServiceIntegTest extends ProtoIntegrationTest {
 
     @Autowired
     private SkillsService service;
