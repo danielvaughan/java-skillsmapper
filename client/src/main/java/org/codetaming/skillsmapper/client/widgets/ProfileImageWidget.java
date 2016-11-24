@@ -11,6 +11,7 @@ import org.codetaming.skillsmapper.client.services.ImageService;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
 import org.gwtbootstrap3.client.ui.Image;
+import org.gwtbootstrap3.client.ui.constants.ImageType;
 
 import java.util.logging.Logger;
 
@@ -25,6 +26,7 @@ public class ProfileImageWidget extends ProtoWidget implements SelectPersonEvent
     @Inject
     public ProfileImageWidget(SimpleEventBus eventBus) {
         this.eventBus = eventBus;
+        image.setType(ImageType.THUMBNAIL);
         initWidget(image);
         initListeners();
     }

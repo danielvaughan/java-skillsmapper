@@ -1,6 +1,6 @@
 package org.codetaming.skillsmapper.controller;
 
-import org.codetaming.skillsmapper.model.Tag;
+import org.codetaming.skillsmapper.domain.Tag;
 import org.codetaming.skillsmapper.services.SkillsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

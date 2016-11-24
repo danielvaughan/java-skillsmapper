@@ -13,7 +13,7 @@ import org.codetaming.skillsmapper.client.model.Person;
 import org.codetaming.skillsmapper.client.services.PersonService;
 import org.fusesource.restygwt.client.Method;
 import org.fusesource.restygwt.client.MethodCallback;
-import org.gwtbootstrap3.client.ui.Heading;
+import org.gwtbootstrap3.client.ui.PageHeader;
 
 import java.util.logging.Logger;
 
@@ -26,7 +26,7 @@ public class ProfileDetailsWidget extends ProtoWidget implements SelectPersonEve
     private static ProfileDetailsWidget.Binder uiBinder = GWT.create(ProfileDetailsWidget.Binder.class);
 
     @UiField
-    Heading nameHeading;
+    PageHeader nameHeading;
 
     @Inject
     public ProfileDetailsWidget(SimpleEventBus eventBus) {

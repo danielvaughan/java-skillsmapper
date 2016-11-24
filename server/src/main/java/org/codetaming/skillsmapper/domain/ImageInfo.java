@@ -1,4 +1,4 @@
-package org.codetaming.skillsmapper.model;
+package org.codetaming.skillsmapper.domain;
 
 public class ImageInfo {
 
