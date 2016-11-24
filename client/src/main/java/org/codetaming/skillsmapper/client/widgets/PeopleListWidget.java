@@ -40,7 +40,7 @@ public class PeopleListWidget extends Composite {
 
     private void reload() {
         PeopleService peopleService = GWT.create(PeopleService.class);
-        peopleService.getPeople(new MethodCallback<Hal<People>>() {
+        peopleService.getPeopleWithProfile(new MethodCallback<Hal<People>>() {
             @Override
             public void onFailure(final Method method, final Throwable exception) {
                 LOGGER.severe(exception.getMessage());
@@ -48,7 +48,7 @@ public class PeopleListWidget extends Composite {
 
             @Override
             public void onSuccess(Method method, Hal<People> response) {
-                LOGGER.info(response.getPage().toString());
+                //LOGGER.info(response.getPage().toString());
                 response.get_embedded().getPeople().forEach(person -> linkedGroup.add(new PersonListItemWidget(person, eventBus)));
                 ;
             }

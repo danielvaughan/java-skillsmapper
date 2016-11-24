@@ -14,4 +14,9 @@ public interface PeopleService extends RestService {
     @GET
     void getPeople(MethodCallback<Hal<People>> callback);
 
+    @GET
+    @Path("/search/findWithProfile")
+    void getPeopleWithProfile(MethodCallback<Hal<People>> callback);
+
 }
+

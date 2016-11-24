@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
 @Service
 @Transactional
 public class PersonService {
@@ -22,5 +26,12 @@ public class PersonService {
         return person;
     }
 
+    public List<Person> getPeopleWithProfiles() {
+        return toList(personRepository.findWithProfile());
+    }
 
+    public static <T> List<T> toList(final Iterable<T> iterable) {
+        return StreamSupport.stream(iterable.spliterator(), false)
+                .collect(Collectors.toList());
+    }
 }
