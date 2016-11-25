@@ -8,10 +8,11 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+@Path("person")
 public interface PersonService extends RestService {
 
     @GET
-    @Path("http://localhost:9000/person/{hash}")
+    @Path("{hash}")
     void getByHash(@PathParam("hash") String hash, MethodCallback<Person> callback);
 
 }

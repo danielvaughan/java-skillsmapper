@@ -8,7 +8,7 @@ import org.fusesource.restygwt.client.RestService;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
-@Path("http://localhost:9000/people")
+@Path("people")
 public interface PeopleService extends RestService {
 
     @GET

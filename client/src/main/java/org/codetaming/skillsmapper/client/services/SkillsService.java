@@ -9,21 +9,22 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import java.util.Set;
 
+@Path("skills")
 public interface SkillsService extends RestService {
 
     @GET
-    @Path("http://localhost:9000/skills/interested/{hash}")
+    @Path("interested/{hash}")
     void getInterestedInByHash(@PathParam("hash") String hash, MethodCallback<Set<Tag>> callback);
 
     @GET
-    @Path("http://localhost:9000/skills/learning/{hash}")
+    @Path("learning/{hash}")
     void getLearningInByHash(@PathParam("hash") String hash, MethodCallback<Set<Tag>> callback);
 
     @GET
-    @Path("http://localhost:9000/skills/using/{hash}")
+    @Path("using/{hash}")
     void getUsingInByHash(@PathParam("hash") String hash, MethodCallback<Set<Tag>> callback);
 
     @GET
-    @Path("http://localhost:9000/skills/used/{hash}")
+    @Path("used/{hash}")
     void getUsedInByHash(@PathParam("hash") String hash, MethodCallback<Set<Tag>> callback);
 }

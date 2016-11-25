@@ -20,6 +20,8 @@ public class SkillsMapperGwt implements EntryPoint {
 
     private final SkillsMapperGwtAppGinjector injector = GWT.create(SkillsMapperGwtAppGinjector.class);
 
+    private final SkillsMapperConstants skillsMapperConstants = GWT.create(SkillsMapperConstants.class);
+
     @Override
     public void onModuleLoad() {
         GWT.setUncaughtExceptionHandler(new GWT.UncaughtExceptionHandler() {
@@ -37,6 +39,7 @@ public class SkillsMapperGwt implements EntryPoint {
     private void onModuleLoad2() {
         try {
             injector.getLoggingController();
+            useCorrectRequestBaseUrl();
             RootPanel.get().add(injector.getMainPanel());
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error in onModuleLoad2 \n", e);
@@ -44,10 +47,11 @@ public class SkillsMapperGwt implements EntryPoint {
     }
 
     private void useCorrectRequestBaseUrl() {
+
         if (isDevelopmentMode()) {
-            Defaults.setServiceRoot("http://localhost:8080");
+            Defaults.setServiceRoot("http://localhost:9000");
         } else {
-            Defaults.setServiceRoot(GWT.getHostPageBaseURL());
+            Defaults.setServiceRoot(skillsMapperConstants.serverBaseUrl());
         }
     }
 

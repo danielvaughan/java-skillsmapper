@@ -1,5 +1,9 @@
 version = '0.1.0'
 
+configurations {
+    all*.exclude module: 'apache-jsp'
+}
+
 dependencies {
     compileOnly 'com.google.gwt:gwt-user:2.8.0',
             'com.google.gwt:gwt-dev:2.8.0',
