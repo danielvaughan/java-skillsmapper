@@ -1,6 +1,5 @@
 package org.codetaming.skillsmapper.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
@@ -8,10 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @NodeEntity
-public class Person {
+public class Person extends Entity {
 
-    @GraphId
-    Long id;
+    private String imageUrl;
+    private String hash;
 
     @Relationship(type = "I_AM_INTERESTED_IN", direction = Relationship.OUTGOING)
     private Set<Tag> interested = new HashSet<>();
@@ -25,21 +24,37 @@ public class Person {
     @Relationship(type = "I_HAVE_USED", direction = Relationship.OUTGOING)
     private Set<Tag> used = new HashSet<>();
 
-    private String name;
-    private Long created;
-    private String imageUrl;
-    private String hash;
+    @Relationship(type = "MEMBER_OF", direction = Relationship.OUTGOING)
+    private Set<Group> groups = new HashSet<>();
 
-    public Long getId() {
-        return id;
+    @Relationship(type = "IS_IN", direction = Relationship.OUTGOING)
+    private Set<Room> rooms = new HashSet<>();
+
+    @Relationship(type = "HAS_TITLE", direction = Relationship.OUTGOING)
+    private Set<Title> titles = new HashSet<>();
+
+    public Set<Group> getGroups() {
+        return groups;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
     }
 
-    public Long getCreated() {
-        return created;
+    public Set<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Set<Room> rooms) {
+        this.rooms = rooms;
+    }
+
+    public Set<Title> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(Set<Title> titles) {
+        this.titles = titles;
     }
 
     public String getImageUrl() {
@@ -56,29 +71,6 @@ public class Person {
 
     public void setHash(String hash) {
         this.hash = hash;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", created=" + created +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", hash='" + hash + '\'' +
-                '}';
-    }
-
-    public void setCreated(Long created) {
-        this.created = created;
     }
 
     public Set<Tag> getUsing() {
@@ -111,5 +103,18 @@ public class Person {
 
     public void addUsed(Tag tag) {
         used.add(tag);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", hash='" + hash + '\'' +
+                ", interested=" + interested +
+                ", learning=" + learning +
+                ", using=" + using +
+                ", used=" + used +
+                '}';
     }
 }

@@ -1,48 +1,17 @@
 package org.codetaming.skillsmapper.domain;
 
-import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 @NodeEntity
-public class Tag {
-
-    @GraphId
-    Long id;
+public class Tag extends Entity {
 
     private boolean valid;
     private Long lastMentioned;
     private Long lastSeen;
     private Long validated;
-    private Long created;
-    private String name;
-
-    @Override
-    public String toString() {
-        return "Tag{" +
-                "id=" + id +
-                ", valid=" + valid +
-                ", lastMentioned=" + lastMentioned +
-                ", lastSeen=" + lastSeen +
-                ", validated=" + validated +
-                ", created=" + created +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", title='" + title + '\'' +
-                ", queried=" + queried +
-                '}';
-    }
-
     private String description;
     private String title;
     private boolean queried;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public boolean isValid() {
         return valid;
@@ -76,22 +45,6 @@ public class Tag {
         this.validated = validated;
     }
 
-    public Long getCreated() {
-        return created;
-    }
-
-    public void setCreated(Long created) {
-        this.created = created;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -116,5 +69,16 @@ public class Tag {
         this.queried = queried;
     }
 
-
+    @Override
+    public String toString() {
+        return "Tag{" +
+                "valid=" + valid +
+                ", lastMentioned=" + lastMentioned +
+                ", lastSeen=" + lastSeen +
+                ", validated=" + validated +
+                ", description='" + description + '\'' +
+                ", title='" + title + '\'' +
+                ", queried=" + queried +
+                '}';
+    }
 }
