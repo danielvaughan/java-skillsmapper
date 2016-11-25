@@ -3,9 +3,9 @@
 # Skills Mapper
 
 ## Deployment
-```gradle clean assemble cfPush```
+```./redeploy.sh```
 
 ## Deploy URL
 
-Server: [http://skills-mapper-server.cfapps.io] (http://skills-mapper-server.cfapps.io)
-Client: [http://skills-mapper-client.cfapps.io] (http://skills-mapper-client.cfapps.io)
+* Server: [http://skills-mapper-server.cfapps.io] (http://skills-mapper-server.cfapps.io)
+* Client: [http://skills-mapper-client.cfapps.io] (http://skills-mapper-client.cfapps.io)
