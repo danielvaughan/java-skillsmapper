@@ -20,7 +20,7 @@ public class PersonListItemWidget extends LinkedGroupItem {
         row.add(new Column(ColumnSize.LG_3, image));
         row.add(new Column(ColumnSize.LG_9, new LinkedGroupItemText(person.getName())));
         addClickHandler(clickEvent -> {
-            eventBus.fireEvent(new SelectPersonEvent(person.getHash()));
+            eventBus.fireEvent(new SelectPersonEvent(person.getId()));
         });
         add(row);
     }

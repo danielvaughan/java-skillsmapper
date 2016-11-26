@@ -9,11 +9,6 @@ import org.fusesource.restygwt.client.Defaults;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * This class is used as entry point for our GWT application. It configures the app and adds the UI.
- *
- * @author Fabian Dietenberger
- */
 public class SkillsMapperGwt implements EntryPoint {
 
     private static final Logger LOGGER = Logger.getLogger("SkillsMapperGwt");
@@ -21,6 +16,15 @@ public class SkillsMapperGwt implements EntryPoint {
     private final SkillsMapperGwtAppGinjector injector = GWT.create(SkillsMapperGwtAppGinjector.class);
 
     private final SkillsMapperConstants skillsMapperConstants = GWT.create(SkillsMapperConstants.class);
+
+    /**
+     * Detect if the app is in development mode.
+     *
+     * @return true if in development mode
+     */
+    private static native boolean isDevelopmentMode()/*-{
+        return typeof $wnd.__gwt_sdm !== 'undefined';
+    }-*/;
 
     @Override
     public void onModuleLoad() {
@@ -47,20 +51,13 @@ public class SkillsMapperGwt implements EntryPoint {
     }
 
     private void useCorrectRequestBaseUrl() {
-
+        String serverBaseUrl;
         if (isDevelopmentMode()) {
-            Defaults.setServiceRoot("http://localhost:9000");
+            serverBaseUrl = skillsMapperConstants.localServerBaseUrl();
         } else {
-            Defaults.setServiceRoot(skillsMapperConstants.serverBaseUrl());
+            serverBaseUrl = skillsMapperConstants.serverBaseUrl();
         }
+        LOGGER.log(Level.INFO, "Setting server base URL to: " + serverBaseUrl);
+        Defaults.setServiceRoot(serverBaseUrl);
     }
-
-    /**
-     * Detect if the app is in development mode.
-     *
-     * @return true if in development mode
-     */
-    private static native boolean isDevelopmentMode()/*-{
-        return typeof $wnd.__gwt_sdm !== 'undefined';
-    }-*/;
 }

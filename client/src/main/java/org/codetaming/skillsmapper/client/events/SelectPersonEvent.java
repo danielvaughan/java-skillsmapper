@@ -5,14 +5,14 @@ import com.google.gwt.event.shared.GwtEvent;
 public class SelectPersonEvent extends GwtEvent<SelectPersonEventHandler> {
 
     public static final Type<SelectPersonEventHandler> TYPE = new Type<SelectPersonEventHandler>();
-    private final String hash;
+    private final Long id;
 
-    public SelectPersonEvent(String hash) {
-        this.hash = hash;
+    public SelectPersonEvent(Long id) {
+        this.id = id;
     }
 
-    public String getHash() {
-        return hash;
+    public Long getId() {
+        return id;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class SelectPersonEvent extends GwtEvent<SelectPersonEventHandler> {
     @Override
     public String toString() {
         return "SelectPersonEvent{" +
-                "hash='" + hash + '\'' +
+                "id=" + id +
                 '}';
     }
 }

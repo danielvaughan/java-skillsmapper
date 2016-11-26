@@ -6,4 +6,5 @@ public interface SkillsMapperConstants extends Constants {
 
     String serverBaseUrl();
 
+    String localServerBaseUrl();
 }

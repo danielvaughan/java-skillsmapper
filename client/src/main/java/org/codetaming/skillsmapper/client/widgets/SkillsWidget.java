@@ -9,20 +9,14 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
-import org.codetaming.skillsmapper.client.model.Tag;
 import org.codetaming.skillsmapper.client.services.SkillsService;
-import org.fusesource.restygwt.client.Method;
-import org.fusesource.restygwt.client.MethodCallback;
 
-import java.util.Set;
 import java.util.logging.Logger;
 
 public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandler {
 
     private static final Logger LOGGER = Logger.getLogger("SkillsWidget");
-
-    private EventBus eventBus;
-
+    private static Binder uiBinder = GWT.create(Binder.class);
     @UiField
     TagBoxWidget interestedTagBoxWidget;
 
@@ -34,6 +28,7 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
 
     @UiField
     TagBoxWidget usedTagBoxWidget;
+    private EventBus eventBus;
 
     @Inject
     public SkillsWidget(SimpleEventBus eventBus) {
@@ -50,18 +45,14 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
         usedTagBoxWidget.setHeading("Has Used");
     }
 
-    interface Binder extends UiBinder<Widget, SkillsWidget> {
-    }
-
     private void initListeners() {
         eventBus.addHandler(SelectPersonEvent.TYPE, this);
     }
 
-    private static Binder uiBinder = GWT.create(Binder.class);
-
     @Override
     public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
         SkillsService skillsService = GWT.create(SkillsService.class);
+        /*
         skillsService.getInterestedInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
@@ -106,5 +97,9 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
                 usedTagBoxWidget.setTags(response);
             }
         });
+        */
+    }
+
+    interface Binder extends UiBinder<Widget, SkillsWidget> {
     }
 }

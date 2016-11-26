@@ -35,9 +35,6 @@ public class PeopleListWidget extends Composite {
         reload();
     }
 
-    interface Binder extends UiBinder<Widget, PeopleListWidget> {
-    }
-
     private void reload() {
         PeopleService peopleService = GWT.create(PeopleService.class);
         peopleService.getPeopleWithProfile(new MethodCallback<Hal<People>>() {
@@ -48,10 +45,15 @@ public class PeopleListWidget extends Composite {
 
             @Override
             public void onSuccess(Method method, Hal<People> response) {
-                //LOGGER.info(response.getPage().toString());
-                response.get_embedded().getPeople().forEach(person -> linkedGroup.add(new PersonListItemWidget(person, eventBus)));
-                ;
+                response.get_embedded().getPeople().forEach(person ->
+                {
+                    linkedGroup.add(new PersonListItemWidget(person, eventBus));
+                    LOGGER.info(person.toString());
+                });
             }
         });
+    }
+
+    interface Binder extends UiBinder<Widget, PeopleListWidget> {
     }
 }

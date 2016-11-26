@@ -37,7 +37,7 @@ public class ProfileImageWidget extends ProtoWidget implements SelectPersonEvent
 
     @Override
     public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
-        reload(selectPersonEvent.getHash());
+        //reload(selectPersonEvent.getHash());
     }
 
     private void reload(String hash) {
