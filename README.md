@@ -3,7 +3,9 @@
 # Skills Mapper
 
 ## Deployment
-```./redeploy.sh```
+```
+./redeploy.sh
+```
 
 ## Deploy URL
 
