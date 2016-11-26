@@ -2,6 +2,9 @@ package org.codetaming.skillsmapper.client.model;
 
 public class Hal<O extends Object> {
 
+    O _embedded;
+    Page page;
+
     public O get_embedded() {
         return _embedded;
     }
@@ -10,8 +13,6 @@ public class Hal<O extends Object> {
         this._embedded = _embedded;
     }
 
-    O _embedded;
-
     public Page getPage() {
         return page;
     }
@@ -19,8 +20,6 @@ public class Hal<O extends Object> {
     public void setPage(Page page) {
         this.page = page;
     }
-
-    Page page;
 
     @Override
     public String toString() {

@@ -11,10 +11,12 @@
                 <b:Container fluid="true">
                     <b:Row>
                         <b:Column size="MD_8">
-                            <w:ProfileDetailsWidget ui:field="profileDetailsWidget"></w:ProfileDetailsWidget>
+                            <w:ProfileDetailsWidget
+                                    ui:field="profileDetailsWidget"></w:ProfileDetailsWidget>
                         </b:Column>
                         <b:Column size="MD_4">
-                            <w:ProfileImageWidget ui:field="profileImageWidget"></w:ProfileImageWidget>
+                            <w:ProfileImageWidget
+                                    ui:field="profileImageWidget"></w:ProfileImageWidget>
                         </b:Column>
                     </b:Row>
                     <b:Row>

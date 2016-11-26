@@ -1,9 +1,14 @@
 package org.codetaming.skillsmapper.client.widgets;
 
 import com.google.gwt.event.shared.EventBus;
+
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.model.Person;
-import org.gwtbootstrap3.client.ui.*;
+import org.gwtbootstrap3.client.ui.Column;
+import org.gwtbootstrap3.client.ui.Image;
+import org.gwtbootstrap3.client.ui.LinkedGroupItem;
+import org.gwtbootstrap3.client.ui.LinkedGroupItemText;
+import org.gwtbootstrap3.client.ui.Row;
 import org.gwtbootstrap3.client.ui.constants.ColumnSize;
 
 public class PersonListItemWidget extends LinkedGroupItem {

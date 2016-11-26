@@ -3,6 +3,7 @@ package org.codetaming.skillsmapper.client.controllers;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.inject.Inject;
+
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
 

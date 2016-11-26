@@ -3,7 +3,7 @@
              xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
 
     <ui:style type='org.codetaming.skillsmapper.client.widgets.TagBoxWidget.MyStyle'>
-        .spacing{
+        .spacing {
             margin-right: 5px;
         }
     </ui:style>

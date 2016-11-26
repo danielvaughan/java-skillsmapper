@@ -4,10 +4,11 @@ import org.codetaming.skillsmapper.client.model.Tag;
 import org.fusesource.restygwt.client.MethodCallback;
 import org.fusesource.restygwt.client.RestService;
 
+import java.util.Set;
+
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import java.util.Set;
 
 @Path("skills")
 public interface SkillsService extends RestService {

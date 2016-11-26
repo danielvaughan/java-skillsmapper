@@ -7,6 +7,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
@@ -21,17 +22,13 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
     private static final Logger LOGGER = Logger.getLogger("ProfileViewWidget");
 
     private static Binder uiBinder = GWT.create(ProfileViewWidget.Binder.class);
-
-    private EventBus eventBus;
-
     @UiField(provided = true)
     ProfileImageWidget profileImageWidget;
-
     @UiField(provided = true)
     ProfileDetailsWidget profileDetailsWidget;
-
     @UiField(provided = true)
     SkillsWidget skillsWidget;
+    private EventBus eventBus;
 
     @Inject
     public ProfileViewWidget(SimpleEventBus eventBus, ProfileImageWidget profileImageWidget, ProfileDetailsWidget profileDetailsWidget, SkillsWidget skillsWidget) {

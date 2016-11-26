@@ -51,6 +51,14 @@ public class Person {
         this.hash = hash;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -61,13 +69,5 @@ public class Person {
                 ", hash='" + hash + '\'' +
                 ", _links=" + _links +
                 '}';
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

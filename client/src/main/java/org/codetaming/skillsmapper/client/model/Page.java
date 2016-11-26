@@ -7,16 +7,6 @@ public class Page {
     Integer totalPages;
     Integer number;
 
-    @Override
-    public String toString() {
-        return "Page{" +
-                "size=" + size +
-                ", totalElements=" + totalElements +
-                ", totalPages=" + totalPages +
-                ", number=" + number +
-                '}';
-    }
-
     public Integer getSize() {
         return size;
     }
@@ -47,5 +37,15 @@ public class Page {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    @Override
+    public String toString() {
+        return "Page{" +
+                "size=" + size +
+                ", totalElements=" + totalElements +
+                ", totalPages=" + totalPages +
+                ", number=" + number +
+                '}';
     }
 }

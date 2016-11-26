@@ -6,6 +6,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+
 import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
 
 public class PeopleViewWidget extends ProtoViewWidget {
@@ -29,7 +30,7 @@ public class PeopleViewWidget extends ProtoViewWidget {
 
     @Override
     protected void initClickHandlers() {
-        
+
     }
 
     interface Binder extends UiBinder<Widget, PeopleViewWidget> {

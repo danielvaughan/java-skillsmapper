@@ -1,6 +1,7 @@
 package org.codetaming.skillsmapper.client.widgets;
 
 import com.google.gwt.user.client.ui.Composite;
+
 import org.codetaming.skillsmapper.client.feature.CanDisable;
 
 import java.util.logging.Logger;

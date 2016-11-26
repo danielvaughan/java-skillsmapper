@@ -6,6 +6,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+
 import org.codetaming.skillsmapper.client.model.Tag;
 import org.gwtbootstrap3.client.ui.Heading;
 import org.gwtbootstrap3.client.ui.Label;
@@ -17,24 +18,18 @@ import java.util.logging.Logger;
 public class TagBoxWidget extends ProtoWidget {
 
     private static final Logger LOGGER = Logger.getLogger("TagBoxWidget");
-
+    private static Binder uiBinder = GWT.create(Binder.class);
     @UiField
     PanelBody panelBody;
-
     @UiField
     Heading heading;
+    @UiField
+    TagBoxWidget.MyStyle style;
 
     @Inject
     public TagBoxWidget() {
         initWidget(uiBinder.createAndBindUi(this));
     }
-
-    interface MyStyle extends CssResource {
-        String spacing();
-    }
-
-    @UiField
-    TagBoxWidget.MyStyle style;
 
     public void setTags(Set<Tag> tags) {
         panelBody.clear();
@@ -49,9 +44,11 @@ public class TagBoxWidget extends ProtoWidget {
         heading.setText(text);
     }
 
-    interface Binder extends UiBinder<Widget, TagBoxWidget> {
+    interface MyStyle extends CssResource {
+        String spacing();
     }
 
-    private static Binder uiBinder = GWT.create(Binder.class);
+    interface Binder extends UiBinder<Widget, TagBoxWidget> {
+    }
 
 }
