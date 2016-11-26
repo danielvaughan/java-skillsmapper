@@ -2,6 +2,11 @@ package org.codetaming.skillsmapper.client.model;
 
 public class Page {
 
+    Integer size;
+    Integer totalElements;
+    Integer totalPages;
+    Integer number;
+
     @Override
     public String toString() {
         return "Page{" +
@@ -11,8 +16,6 @@ public class Page {
                 ", number=" + number +
                 '}';
     }
-
-    Integer size;
 
     public Integer getSize() {
         return size;
@@ -45,8 +48,4 @@ public class Page {
     public void setNumber(Integer number) {
         this.number = number;
     }
-
-    Integer totalElements;
-    Integer totalPages;
-    Integer number;
 }
