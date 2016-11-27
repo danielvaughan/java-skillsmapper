@@ -10,6 +10,7 @@ import com.google.inject.Inject;
 
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
+import org.codetaming.skillsmapper.client.model.Person;
 import org.codetaming.skillsmapper.client.services.SkillsService;
 
 import java.util.logging.Logger;
@@ -99,6 +100,9 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
             }
         });
         */
+    }
+
+public void showPerson(Person person) {
     }
 
     interface Binder extends UiBinder<Widget, SkillsWidget> {

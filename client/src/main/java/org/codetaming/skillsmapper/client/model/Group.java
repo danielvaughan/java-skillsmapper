@@ -1,9 +1,9 @@
 package org.codetaming.skillsmapper.client.model;
 
-public class ImageInfo {
+public class Group {
 
     private String name;
-    private String imageUrl;
+    private Long created;
 
     public String getName() {
         return name;
@@ -13,19 +13,19 @@ public class ImageInfo {
         this.name = name;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public Long getCreated() {
+        return created;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setCreated(Long created) {
+        this.created = created;
     }
 
     @Override
     public String toString() {
-        return "ImageInfo{" +
+        return "Group{" +
                 "name='" + name + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
+                ", created=" + created +
                 '}';
     }
 }

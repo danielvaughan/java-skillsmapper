@@ -8,53 +8,47 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 
-import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
-import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
+import org.codetaming.skillsmapper.client.model.Group;
 import org.codetaming.skillsmapper.client.model.Person;
-import org.codetaming.skillsmapper.client.services.PeopleService;
-import org.fusesource.restygwt.client.Method;
-import org.fusesource.restygwt.client.MethodCallback;
+import org.gwtbootstrap3.client.ui.Heading;
+import org.gwtbootstrap3.client.ui.Image;
 import org.gwtbootstrap3.client.ui.PageHeader;
 
+import java.util.List;
 import java.util.logging.Logger;
 
-public class ProfileDetailsWidget extends ProtoWidget implements SelectPersonEventHandler {
+public class ProfileDetailsWidget extends ProtoWidget {
 
     private static final Logger LOGGER = Logger.getLogger("ProfileDetailsWidget");
     private static ProfileDetailsWidget.Binder uiBinder = GWT.create(ProfileDetailsWidget.Binder.class);
+
     @UiField
-    PageHeader nameHeading;
+    PageHeader name;
+
+    @UiField
+    Image photo;
+
+    @UiField
+    Heading description;
+
     private EventBus eventBus;
 
     @Inject
     public ProfileDetailsWidget(SimpleEventBus eventBus) {
         this.eventBus = eventBus;
         initWidget(uiBinder.createAndBindUi(this));
-        initListeners();
     }
 
-    private void initListeners() {
-        eventBus.addHandler(SelectPersonEvent.TYPE, this);
+    public void showPerson(Person person) {
+        name.setText(person.getName());
+        photo.setUrl(person.getImageUrl() == null ? "http://common.gcscc.site/img/silhouette.png" : person.getImageUrl());
     }
 
-    @Override
-    public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
-        reload(selectPersonEvent.getId());
-    }
-
-    private void reload(Long id) {
-        PeopleService peopleService = GWT.create(PeopleService.class);
-        peopleService.getPerson(id, new MethodCallback<Person>() {
-            @Override
-            public void onFailure(final Method method, final Throwable exception) {
-                LOGGER.severe(exception.getMessage());
-            }
-
-            @Override
-            public void onSuccess(Method method, Person person) {
-                nameHeading.setText(person.getName());
-            }
-        });
+    public void showGroups(List<Group> groups) {
+        description.clear();
+        StringBuffer groupNames = new StringBuffer();
+        groups.forEach(group -> groupNames.append(group.getName()));
+        description.setText(groupNames.toString());
     }
 
     interface Binder extends UiBinder<Widget, ProfileDetailsWidget> {

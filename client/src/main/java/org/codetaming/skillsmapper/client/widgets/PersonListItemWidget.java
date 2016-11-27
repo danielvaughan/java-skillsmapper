@@ -25,7 +25,7 @@ public class PersonListItemWidget extends LinkedGroupItem {
         row.add(new Column(ColumnSize.LG_3, image));
         row.add(new Column(ColumnSize.LG_9, new LinkedGroupItemText(person.getName())));
         addClickHandler(clickEvent -> {
-            eventBus.fireEvent(new SelectPersonEvent(person.getId()));
+            eventBus.fireEvent(new SelectPersonEvent(person.getURI()));
         });
         add(row);
     }

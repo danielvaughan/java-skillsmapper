@@ -4,15 +4,20 @@ import com.google.gwt.event.shared.GwtEvent;
 
 public class SelectPersonEvent extends GwtEvent<SelectPersonEventHandler> {
 
-    public static final Type<SelectPersonEventHandler> TYPE = new Type<SelectPersonEventHandler>();
-    private final Long id;
+    public static final Type<SelectPersonEventHandler> TYPE = new Type<>();
 
-    public SelectPersonEvent(Long id) {
-        this.id = id;
+    private final String uri;
+
+    public SelectPersonEvent(String uri) {
+        this.uri = uri;
     }
 
-    public Long getId() {
-        return id;
+    public String getUri() {
+        return uri;
+    }
+
+    public String getId() {
+        return uri.substring(uri.lastIndexOf("/") + 1);
     }
 
     @Override
@@ -28,7 +33,7 @@ public class SelectPersonEvent extends GwtEvent<SelectPersonEventHandler> {
     @Override
     public String toString() {
         return "SelectPersonEvent{" +
-                "id=" + id +
+                "uri=" + uri +
                 '}';
     }
 }

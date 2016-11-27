@@ -2,6 +2,14 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
     <b:Container fluid="true">
-        <b:PageHeader ui:field="nameHeading"/>
+        <b:Row>
+            <b:Column size="MD_8">
+                <b:PageHeader ui:field="name"/>
+                <b:Heading size="H2" ui:field="description"/>
+            </b:Column>
+            <b:Column size="MD_4">
+                <b:Image type="THUMBNAIL" ui:field="photo"></b:Image>
+            </b:Column>
+        </b:Row>
     </b:Container>
 </ui:UiBinder>

@@ -1,23 +1,22 @@
 package org.codetaming.skillsmapper.client.model;
 
 public class Link {
-/*
-    private String self;
 
-    public String getSelf() {
-        return self;
+    private String href;
+
+    public String getHref() {
+        return href;
     }
 
-    public void setSelf(String self) {
-        this.self = self;
+    public void setHref(String href) {
+        this.href = href;
     }
 
     @Override
     public String toString() {
         return "Link{" +
-                "self='" + self + '\'' +
+                "href='" + href + '\'' +
                 '}';
     }
 
-*/
 }

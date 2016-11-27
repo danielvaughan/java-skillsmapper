@@ -1,30 +1,18 @@
 package org.codetaming.skillsmapper.client.model;
 
-import java.util.List;
-
 public class Person {
 
-    private Long id;
     private String name;
     private Long created;
     private String imageUrl;
-    private String hash;
-    private List<Link> _links;
+    private Links _links;
 
-    public List<Link> get_links() {
+    public Links get_links() {
         return _links;
     }
 
-    public void set_links(List<Link> _links) {
+    public void set_links(Links _links) {
         this._links = _links;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Long getCreated() {
@@ -43,14 +31,6 @@ public class Person {
         this.imageUrl = imageUrl;
     }
 
-    public String getHash() {
-        return hash;
-    }
-
-    public void setHash(String hash) {
-        this.hash = hash;
-    }
-
     public String getName() {
         return name;
     }
@@ -59,14 +39,16 @@ public class Person {
         this.name = name;
     }
 
+    public String getURI() {
+        return _links.getSelf().getHref();
+    }
+
     @Override
     public String toString() {
         return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", created=" + created +
                 ", imageUrl='" + imageUrl + '\'' +
-                ", hash='" + hash + '\'' +
                 ", _links=" + _links +
                 '}';
     }

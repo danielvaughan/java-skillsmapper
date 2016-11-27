@@ -10,17 +10,11 @@
             <b:PanelBody addStyleNames="scrollable">
                 <b:Container fluid="true">
                     <b:Row>
-                        <b:Column size="MD_8">
-                            <w:ProfileDetailsWidget
-                                    ui:field="profileDetailsWidget"></w:ProfileDetailsWidget>
-                        </b:Column>
-                        <b:Column size="MD_4">
-                            <w:ProfileImageWidget
-                                    ui:field="profileImageWidget"></w:ProfileImageWidget>
-                        </b:Column>
+                        <w:ProfileDetailsWidget
+                                ui:field="profileDetailsWidget"></w:ProfileDetailsWidget>
                     </b:Row>
                     <b:Row>
-                        <b:Heading size="H4" text=""/>
+                        <b:Heading size="H5" text=""/>
                     </b:Row>
                     <b:Row>
                         <w:SkillsWidget ui:field="skillsWidget"></w:SkillsWidget>

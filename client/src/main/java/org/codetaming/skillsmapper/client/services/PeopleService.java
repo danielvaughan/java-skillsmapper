@@ -1,5 +1,6 @@
 package org.codetaming.skillsmapper.client.services;
 
+import org.codetaming.skillsmapper.client.model.Groups;
 import org.codetaming.skillsmapper.client.model.Hal;
 import org.codetaming.skillsmapper.client.model.People;
 import org.codetaming.skillsmapper.client.model.Person;
@@ -18,7 +19,11 @@ public interface PeopleService extends RestService {
 
     @GET
     @Path("/{id}")
-    void getPerson(@PathParam("id") Long id, MethodCallback<Person> callback);
+    void getPerson(@PathParam("id") String id, MethodCallback<Person> callback);
+
+    @GET
+    @Path("/{id}/groups")
+    void getGroups(@PathParam("id") String id, MethodCallback<Hal<Groups>> callback);
 
     @GET
     @Path("/search/findWithProfile")

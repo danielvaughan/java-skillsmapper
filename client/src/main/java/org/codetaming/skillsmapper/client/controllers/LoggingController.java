@@ -27,6 +27,6 @@ public class LoggingController implements SelectPersonEventHandler {
 
     @Override
     public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
-        LOGGER.info("Select person: " + selectPersonEvent.getId());
+        LOGGER.info("Select person: " + selectPersonEvent.getUri());
     }
 }
