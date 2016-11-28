@@ -1,8 +1,7 @@
 package org.codetaming.skillsmapper.client.services;
 
-import org.codetaming.skillsmapper.client.model.Groups;
-import org.codetaming.skillsmapper.client.model.Hal;
-import org.codetaming.skillsmapper.client.model.People;
+import org.codetaming.skillsmapper.client.model.GroupsWrapper;
+import org.codetaming.skillsmapper.client.model.PeopleWrapper;
 import org.codetaming.skillsmapper.client.model.Person;
 import org.codetaming.skillsmapper.client.model.TagsWrapper;
 import org.fusesource.restygwt.client.MethodCallback;
@@ -16,7 +15,7 @@ import javax.ws.rs.PathParam;
 public interface PeopleService extends RestService {
 
     @GET
-    void getPeople(MethodCallback<Hal<People>> callback);
+    void getPeople(MethodCallback<PeopleWrapper> callback);
 
     @GET
     @Path("/{id}")
@@ -24,11 +23,11 @@ public interface PeopleService extends RestService {
 
     @GET
     @Path("/{id}/groups")
-    void getGroups(@PathParam("id") String id, MethodCallback<Hal<Groups>> callback);
+    void getGroups(@PathParam("id") String id, MethodCallback<GroupsWrapper> callback);
 
     @GET
     @Path("/search/findWithProfile")
-    void getPeopleWithProfile(MethodCallback<Hal<People>> callback);
+    void getPeopleWithProfile(MethodCallback<PeopleWrapper> callback);
 
     @GET
     @Path("/{id}/interested")

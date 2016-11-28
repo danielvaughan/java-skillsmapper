@@ -10,8 +10,7 @@ import com.google.inject.Inject;
 
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
-import org.codetaming.skillsmapper.client.model.Groups;
-import org.codetaming.skillsmapper.client.model.Hal;
+import org.codetaming.skillsmapper.client.model.GroupsWrapper;
 import org.codetaming.skillsmapper.client.model.Person;
 import org.codetaming.skillsmapper.client.services.PeopleService;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
@@ -59,14 +58,14 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
     }
 
     private void loadGroups(String id) {
-        peopleService.getGroups(id, new MethodCallback<Hal<Groups>>() {
+        peopleService.getGroups(id, new MethodCallback<GroupsWrapper>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
                 LOGGER.severe(exception.getMessage());
             }
 
             @Override
-            public void onSuccess(Method method, Hal<Groups> response) {
+            public void onSuccess(Method method, GroupsWrapper response) {
                 profileDetailsWidget.showGroups(response.get_embedded().getGroups());
             }
         });
