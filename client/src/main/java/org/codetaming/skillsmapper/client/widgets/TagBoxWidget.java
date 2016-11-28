@@ -12,7 +12,7 @@ import org.gwtbootstrap3.client.ui.Heading;
 import org.gwtbootstrap3.client.ui.Label;
 import org.gwtbootstrap3.client.ui.PanelBody;
 
-import java.util.Set;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class TagBoxWidget extends ProtoWidget {
@@ -31,7 +31,7 @@ public class TagBoxWidget extends ProtoWidget {
         initWidget(uiBinder.createAndBindUi(this));
     }
 
-    public void setTags(Set<Tag> tags) {
+    public void setTags(List<Tag> tags) {
         panelBody.clear();
         for (Tag tag : tags) {
             Label label = new Label(tag.getName());

@@ -11,7 +11,10 @@ import com.google.inject.Inject;
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
 import org.codetaming.skillsmapper.client.model.Person;
-import org.codetaming.skillsmapper.client.services.SkillsService;
+import org.codetaming.skillsmapper.client.model.TagsWrapper;
+import org.codetaming.skillsmapper.client.services.PeopleService;
+import org.fusesource.restygwt.client.Method;
+import org.fusesource.restygwt.client.MethodCallback;
 
 import java.util.logging.Logger;
 
@@ -21,15 +24,13 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
     private static Binder uiBinder = GWT.create(Binder.class);
     @UiField
     TagBoxWidget interestedTagBoxWidget;
-
     @UiField
     TagBoxWidget learningTagBoxWidget;
-
     @UiField
     TagBoxWidget usingTagBoxWidget;
-
     @UiField
     TagBoxWidget usedTagBoxWidget;
+    private PeopleService peopleService = GWT.create(PeopleService.class);
     private EventBus eventBus;
 
     @Inject
@@ -53,53 +54,55 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
 
     @Override
     public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
-        SkillsService skillsService = GWT.create(SkillsService.class);
-        /*
-        skillsService.getInterestedInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
+        String id = selectPersonEvent.getId();
+        peopleService.getInterested(id, new MethodCallback<TagsWrapper>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
                 LOGGER.severe("Error getting interested skills: " + exception.getMessage());
             }
 
             @Override
-            public void onSuccess(Method method, Set<Tag> response) {
-                interestedTagBoxWidget.setTags(response);
+            public void onSuccess(Method method, TagsWrapper response) {
+                LOGGER.info(response.toString());
+                interestedTagBoxWidget.setTags(response.get_embedded().getTags());
             }
         });
-        skillsService.getLearningInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
+        peopleService.getLearning(id, new MethodCallback<TagsWrapper>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
                 LOGGER.severe("Error getting learning skills: " + exception.getMessage());
             }
 
             @Override
-            public void onSuccess(Method method, Set<Tag> response) {
-                learningTagBoxWidget.setTags(response);
+            public void onSuccess(Method method, TagsWrapper response) {
+                LOGGER.info(response.toString());
+                learningTagBoxWidget.setTags(response.get_embedded().getTags());
             }
         });
-        skillsService.getUsingInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
+        peopleService.getUsing(id, new MethodCallback<TagsWrapper>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
                 LOGGER.severe("Error getting using skills: " + exception.getMessage());
             }
 
             @Override
-            public void onSuccess(Method method, Set<Tag> response) {
-                usingTagBoxWidget.setTags(response);
+            public void onSuccess(Method method, TagsWrapper response) {
+                LOGGER.info(response.toString());
+                usingTagBoxWidget.setTags(response.get_embedded().getTags());
             }
         });
-        skillsService.getUsedInByHash(selectPersonEvent.getHash(), new MethodCallback<Set<Tag>>() {
+        peopleService.getUsed(id, new MethodCallback<TagsWrapper>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
                 LOGGER.severe("Error getting used skills: " + exception.getMessage());
             }
 
             @Override
-            public void onSuccess(Method method, Set<Tag> response) {
-                usedTagBoxWidget.setTags(response);
+            public void onSuccess(Method method, TagsWrapper response) {
+                LOGGER.info(response.toString());
+                usedTagBoxWidget.setTags(response.get_embedded().getTags());
             }
         });
-        */
     }
 
 public void showPerson(Person person) {

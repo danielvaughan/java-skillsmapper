@@ -53,7 +53,7 @@ task compileGwt(dependsOn: classes, type: JavaExec) {
             '-localWorkers', '4',
             '-compileReport',
             '-extra', extraDir,
-            '-style', 'OBF',
+            '-style', 'PRETTY',
             '-optimize', '7' // 0=none, 9=max
     ]
 
