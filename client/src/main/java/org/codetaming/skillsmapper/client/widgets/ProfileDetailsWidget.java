@@ -21,6 +21,9 @@ import java.util.logging.Logger;
 public class ProfileDetailsWidget extends ProtoWidget {
 
     private static final Logger LOGGER = Logger.getLogger("ProfileDetailsWidget");
+
+    private static final String DEFAULT_PHOTO_URL = "http://common.gcscc.site/img/silhouette.png";
+
     private static ProfileDetailsWidget.Binder uiBinder = GWT.create(ProfileDetailsWidget.Binder.class);
 
     @UiField
@@ -44,22 +47,36 @@ public class ProfileDetailsWidget extends ProtoWidget {
     }
 
     public void showPerson(Person person) {
+        clearPerson();
         name.setText(person.getName());
-        photo.setUrl(person.getImageUrl() == null ? "http://common.gcscc.site/img/silhouette.png" : person.getImageUrl());
+        photo.setUrl(person.getImageUrl() == null ? DEFAULT_PHOTO_URL : person.getImageUrl());
     }
 
     public void showGroups(List<Group> groups) {
-        groupsHeader.clear();
+        clearGroups();
         StringBuffer groupsStr = new StringBuffer();
         groups.forEach(group -> groupsStr.append(group.getName()));
         groupsHeader.setText(groupsStr.toString());
     }
 
     public void showTitles(List<Title> titles) {
-        titlesHeader.clear();
+        clearTitles();
         StringBuffer titlesStr = new StringBuffer();
         titles.forEach(title -> titlesStr.append(title.getName()));
         titlesHeader.setText(titlesStr.toString());
+    }
+
+    public void clearPerson() {
+        name.clear();
+        photo.setUrl(DEFAULT_PHOTO_URL);
+    }
+
+    public void clearGroups() {
+        groupsHeader.clear();
+    }
+
+    public void clearTitles() {
+        titlesHeader.clear();
     }
 
     interface Binder extends UiBinder<Widget, ProfileDetailsWidget> {

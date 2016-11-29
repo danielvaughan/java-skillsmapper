@@ -48,7 +48,6 @@ public class PeopleListWidget extends Composite {
                 response.get_embedded().getPeople().forEach(person ->
                 {
                     linkedGroup.add(new PersonListItemWidget(person, eventBus));
-                    LOGGER.info(person.toString());
                 });
             }
         });

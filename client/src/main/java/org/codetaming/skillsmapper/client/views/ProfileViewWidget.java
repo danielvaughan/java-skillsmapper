@@ -60,6 +60,7 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
     }
 
     private void loadTitles(String id) {
+        profileDetailsWidget.clearTitles();
         peopleService.getTitles(id, new MethodCallback<TitlesWrapper>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
@@ -74,6 +75,7 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
     }
 
     private void loadGroups(String id) {
+        profileDetailsWidget.clearGroups();
         peopleService.getGroups(id, new MethodCallback<GroupsWrapper>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
@@ -88,6 +90,7 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
     }
 
     private void loadPerson(String id) {
+        profileDetailsWidget.clearPerson();
         peopleService.getPerson(id, new MethodCallback<Person>() {
             @Override
             public void onFailure(final Method method, final Throwable exception) {
