@@ -4,6 +4,7 @@ import org.codetaming.skillsmapper.client.model.GroupsWrapper;
 import org.codetaming.skillsmapper.client.model.PeopleWrapper;
 import org.codetaming.skillsmapper.client.model.Person;
 import org.codetaming.skillsmapper.client.model.TagsWrapper;
+import org.codetaming.skillsmapper.client.model.TitlesWrapper;
 import org.fusesource.restygwt.client.MethodCallback;
 import org.fusesource.restygwt.client.RestService;
 
@@ -24,6 +25,10 @@ public interface PeopleService extends RestService {
     @GET
     @Path("/{id}/groups")
     void getGroups(@PathParam("id") String id, MethodCallback<GroupsWrapper> callback);
+
+    @GET
+    @Path("/{id}/titles")
+    void getTitles(@PathParam("id") String id, MethodCallback<TitlesWrapper> callback);
 
     @GET
     @Path("/search/findWithProfile")

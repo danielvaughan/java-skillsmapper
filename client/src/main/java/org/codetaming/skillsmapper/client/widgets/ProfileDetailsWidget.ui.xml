@@ -5,7 +5,8 @@
         <b:Row>
             <b:Column size="MD_8">
                 <b:PageHeader ui:field="name"/>
-                <b:Heading size="H2" ui:field="description"/>
+                <b:Heading size="H3" ui:field="titlesHeader"/>
+                <b:Heading size="H4" ui:field="groupsHeader"/>
             </b:Column>
             <b:Column size="MD_4">
                 <b:Image type="THUMBNAIL" ui:field="photo"></b:Image>

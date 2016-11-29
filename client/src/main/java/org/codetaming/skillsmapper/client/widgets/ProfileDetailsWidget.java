@@ -10,6 +10,7 @@ import com.google.inject.Inject;
 
 import org.codetaming.skillsmapper.client.model.Group;
 import org.codetaming.skillsmapper.client.model.Person;
+import org.codetaming.skillsmapper.client.model.Title;
 import org.gwtbootstrap3.client.ui.Heading;
 import org.gwtbootstrap3.client.ui.Image;
 import org.gwtbootstrap3.client.ui.PageHeader;
@@ -29,7 +30,10 @@ public class ProfileDetailsWidget extends ProtoWidget {
     Image photo;
 
     @UiField
-    Heading description;
+    Heading groupsHeader;
+
+    @UiField
+    Heading titlesHeader;
 
     private EventBus eventBus;
 
@@ -45,10 +49,17 @@ public class ProfileDetailsWidget extends ProtoWidget {
     }
 
     public void showGroups(List<Group> groups) {
-        description.clear();
-        StringBuffer groupNames = new StringBuffer();
-        groups.forEach(group -> groupNames.append(group.getName()));
-        description.setText(groupNames.toString());
+        groupsHeader.clear();
+        StringBuffer groupsStr = new StringBuffer();
+        groups.forEach(group -> groupsStr.append(group.getName()));
+        groupsHeader.setText(groupsStr.toString());
+    }
+
+    public void showTitles(List<Title> titles) {
+        titlesHeader.clear();
+        StringBuffer titlesStr = new StringBuffer();
+        titles.forEach(title -> titlesStr.append(title.getName()));
+        titlesHeader.setText(titlesStr.toString());
     }
 
     interface Binder extends UiBinder<Widget, ProfileDetailsWidget> {

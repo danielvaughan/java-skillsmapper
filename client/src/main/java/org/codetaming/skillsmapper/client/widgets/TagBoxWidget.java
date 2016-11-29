@@ -10,7 +10,7 @@ import com.google.inject.Inject;
 import org.codetaming.skillsmapper.client.model.Tag;
 import org.gwtbootstrap3.client.ui.Heading;
 import org.gwtbootstrap3.client.ui.Label;
-import org.gwtbootstrap3.client.ui.PanelBody;
+import org.gwtbootstrap3.client.ui.html.Paragraph;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -19,8 +19,9 @@ public class TagBoxWidget extends ProtoWidget {
 
     private static final Logger LOGGER = Logger.getLogger("TagBoxWidget");
     private static Binder uiBinder = GWT.create(Binder.class);
+
     @UiField
-    PanelBody panelBody;
+    Paragraph bucket;
     @UiField
     Heading heading;
     @UiField
@@ -32,11 +33,11 @@ public class TagBoxWidget extends ProtoWidget {
     }
 
     public void setTags(List<Tag> tags) {
-        panelBody.clear();
+        bucket.clear();
         for (Tag tag : tags) {
             Label label = new Label(tag.getName());
             label.getElement().addClassName(style.spacing());
-            panelBody.add(label);
+            bucket.add(label);
         }
     }
 

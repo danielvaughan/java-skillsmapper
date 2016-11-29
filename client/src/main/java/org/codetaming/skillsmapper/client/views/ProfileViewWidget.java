@@ -12,6 +12,7 @@ import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
 import org.codetaming.skillsmapper.client.model.GroupsWrapper;
 import org.codetaming.skillsmapper.client.model.Person;
+import org.codetaming.skillsmapper.client.model.TitlesWrapper;
 import org.codetaming.skillsmapper.client.services.PeopleService;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
 import org.codetaming.skillsmapper.client.widgets.ProtoWidget;
@@ -55,6 +56,21 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
         String id = selectPersonEvent.getId();
         loadPerson(id);
         loadGroups(id);
+        loadTitles(id);
+    }
+
+    private void loadTitles(String id) {
+        peopleService.getTitles(id, new MethodCallback<TitlesWrapper>() {
+            @Override
+            public void onFailure(Method method, Throwable exception) {
+                LOGGER.severe(exception.getMessage());
+            }
+
+            @Override
+            public void onSuccess(Method method, TitlesWrapper response) {
+                profileDetailsWidget.showTitles(response.get_embedded().getTitles());
+            }
+        });
     }
 
     private void loadGroups(String id) {
