@@ -82,4 +82,4 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 /gradle.properties
 /src/main/resources/ogm.properties
-/client/restart-client.sh
+/setenv.sh
