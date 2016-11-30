@@ -8,14 +8,12 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-neo4j')
     compile("org.springframework.boot:spring-boot-starter-data-rest")
-    compile("org.springframework.boot:spring-boot-starter-security")
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     compile("com.voodoodyne.jackson.jsog:jackson-jsog:1.1")
     compile("org.neo4j:neo4j-ogm-http-driver:${neo4jOgmVersion}")
     compile("org.hibernate:hibernate-validator")
-    compile("com.auth0:auth0-spring-security-api:0.3.2")
 
     testCompile("org.neo4j:neo4j-ogm-bolt-driver:${neo4jOgmVersion}")
     testCompile("org.neo4j:neo4j-ogm-embedded-driver:${neo4jOgmVersion}")
