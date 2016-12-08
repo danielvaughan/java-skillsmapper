@@ -3,7 +3,9 @@ package org.codetaming.skillsmapper.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.inject.Inject;
 
 import org.fusesource.restygwt.client.Defaults;
 
@@ -14,9 +16,12 @@ public class SkillsMapperGwt implements EntryPoint {
 
     private static final Logger LOGGER = Logger.getLogger("SkillsMapperGwt");
 
-    private final SkillsMapperGwtAppGinjector injector = GWT.create(SkillsMapperGwtAppGinjector.class);
+    //private final SkillsMapperGwtAppGinjector injector = GWT.create(SkillsMapperGwtAppGinjector.class);
 
     private final SkillsMapperConstants skillsMapperConstants = GWT.create(SkillsMapperConstants.class);
+
+    @Inject
+    PlaceHistoryHandler historyHandler;
 
     /**
      * Detect if the app is in development mode.
@@ -43,9 +48,12 @@ public class SkillsMapperGwt implements EntryPoint {
 
     private void onModuleLoad2() {
         try {
+            final SkillsMapperGwtAppGinjector injector = GWT.create(SkillsMapperGwtAppGinjector.class);
+            injector.inject(this);
             injector.getLoggingController();
             useCorrectRequestBaseUrl();
             RootPanel.get().add(injector.getMainPanel());
+            historyHandler.handleCurrentHistory();
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error in onModuleLoad2 \n", e);
         }

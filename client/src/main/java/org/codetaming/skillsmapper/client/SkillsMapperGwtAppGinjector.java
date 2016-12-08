@@ -10,8 +10,12 @@ import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
 import org.codetaming.skillsmapper.client.widgets.SkillsWidget;
 
+import static org.codetaming.skillsmapper.client.places.SkillsMapperPlaceHistoryMapper.SkillsMapperPlaceTokenizers;
+
 @GinModules(SkillsMapperGwtGinModule.class)
-public interface SkillsMapperGwtAppGinjector extends Ginjector {
+public interface SkillsMapperGwtAppGinjector extends Ginjector, SkillsMapperPlaceTokenizers {
+
+    void inject(SkillsMapperGwt skillsMapperGwt);
 
     SimpleEventBus getEventBus();
 

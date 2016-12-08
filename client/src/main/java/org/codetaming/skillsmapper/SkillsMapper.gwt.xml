@@ -3,6 +3,8 @@
 <module rename-to="skillsmappergwt">
 
     <inherits name='com.google.gwt.user.User'/>
+    <inherits name='com.google.gwt.place.Place' />
+
     <inherits name="org.fusesource.restygwt.RestyGWT"/>
     <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
 
