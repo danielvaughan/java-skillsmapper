@@ -16,8 +16,6 @@ public class SkillsMapperGwt implements EntryPoint {
 
     private static final Logger LOGGER = Logger.getLogger("SkillsMapperGwt");
 
-    //private final SkillsMapperGwtAppGinjector injector = GWT.create(SkillsMapperGwtAppGinjector.class);
-
     private final SkillsMapperConstants skillsMapperConstants = GWT.create(SkillsMapperConstants.class);
 
     @Inject

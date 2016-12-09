@@ -6,15 +6,16 @@ import com.google.gwt.place.shared.Prefix;
 
 public class WelcomePlace extends Place {
 
-	@Prefix("")
-	public static class Tokenizer implements PlaceTokenizer<WelcomePlace> {
-		@Override
-		public WelcomePlace getPlace(String token) {
-			return new WelcomePlace();
-		}
-		@Override
-		public String getToken(WelcomePlace place) {
-			return "";
-		}
-	}
+    @Prefix("")
+    public static class Tokenizer implements PlaceTokenizer<WelcomePlace> {
+        @Override
+        public WelcomePlace getPlace(String token) {
+            return new WelcomePlace();
+        }
+
+        @Override
+        public String getToken(WelcomePlace place) {
+            return "";
+        }
+    }
 }
