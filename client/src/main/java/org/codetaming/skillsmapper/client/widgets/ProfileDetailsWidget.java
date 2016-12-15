@@ -1,12 +1,11 @@
 package org.codetaming.skillsmapper.client.widgets;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
 
 import org.codetaming.skillsmapper.client.model.Group;
 import org.codetaming.skillsmapper.client.model.Person;
@@ -41,7 +40,7 @@ public class ProfileDetailsWidget extends ProtoWidget {
     private EventBus eventBus;
 
     @Inject
-    public ProfileDetailsWidget(SimpleEventBus eventBus) {
+    public ProfileDetailsWidget(EventBus eventBus) {
         this.eventBus = eventBus;
         initWidget(uiBinder.createAndBindUi(this));
     }

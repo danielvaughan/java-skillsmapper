@@ -14,9 +14,9 @@ public class SkillsMapperActivityMapper implements ActivityMapper {
 
     @Override
     public Activity getActivity(Place place) {
-        if (place instanceof PeoplePlace) {
+        /*if (place instanceof PeoplePlace) {
             return factory.createPeoplePresenter((PeoplePlace) place);
-        }
+        }*/
         return null;
     }
 

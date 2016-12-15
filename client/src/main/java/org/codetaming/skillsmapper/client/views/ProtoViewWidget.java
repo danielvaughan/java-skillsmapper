@@ -1,14 +1,14 @@
 package org.codetaming.skillsmapper.client.views;
 
-import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.web.bindery.event.shared.EventBus;
 
 import org.codetaming.skillsmapper.client.widgets.ProtoWidget;
 
 public abstract class ProtoViewWidget extends ProtoWidget {
 
-    protected SimpleEventBus eventBus;
+    protected EventBus eventBus;
 
-    protected ProtoViewWidget(SimpleEventBus eventBus) {
+    protected ProtoViewWidget(EventBus eventBus) {
         super();
         this.eventBus = eventBus;
     }

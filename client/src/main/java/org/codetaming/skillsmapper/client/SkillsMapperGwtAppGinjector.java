@@ -1,8 +1,8 @@
 package org.codetaming.skillsmapper.client;
 
-import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
+import com.google.web.bindery.event.shared.EventBus;
 
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
@@ -17,7 +17,7 @@ public interface SkillsMapperGwtAppGinjector extends Ginjector, SkillsMapperPlac
 
     void inject(SkillsMapperGwt skillsMapperGwt);
 
-    SimpleEventBus getEventBus();
+    EventBus getEventBus();
 
     MainPanel getMainPanel();
 

@@ -1,6 +1,6 @@
 package org.codetaming.skillsmapper.client.widgets;
 
-import com.google.gwt.event.shared.EventBus;
+import com.google.web.bindery.event.shared.EventBus;
 
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.model.Person;
@@ -13,7 +13,7 @@ import org.gwtbootstrap3.client.ui.constants.ColumnSize;
 
 public class PersonListItemWidget extends LinkedGroupItem {
 
-    public PersonListItemWidget(Person person, EventBus eventBus) {
+    public PersonListItemWidget(final Person person, final EventBus eventBus) {
         super();
         Row row = new Row();
         String imageUrl = person.getImageUrl() == null ? "http://common.gcscc.site/img/silhouette.png" : person.getImageUrl();

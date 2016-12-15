@@ -1,8 +1,7 @@
 package org.codetaming.skillsmapper.client.controllers;
 
-import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
 
 import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
 import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
@@ -13,10 +12,10 @@ public class LoggingController implements SelectPersonEventHandler {
 
     private static final Logger LOGGER = Logger.getLogger("LoggingController");
 
-    private EventBus eventBus;
+    private final EventBus eventBus;
 
     @Inject
-    public LoggingController(SimpleEventBus eventBus) {
+    public LoggingController(final EventBus eventBus) {
         this.eventBus = eventBus;
         initListeners();
     }

@@ -1,0 +1,1 @@
+Problem caused by mismatch with com.google.web.bindery.event.shared.EventBus

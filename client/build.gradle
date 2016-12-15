@@ -49,7 +49,7 @@ task compileGwt(dependsOn: classes, type: JavaExec) {
     args = [
             'org.codetaming.skillsmapper.SkillsMapper',
             '-war', buildDir,
-            '-logLevel', 'INFO',
+            '-logLevel', 'ERROR',
             '-localWorkers', '4',
             '-compileReport',
             '-extra', extraDir,

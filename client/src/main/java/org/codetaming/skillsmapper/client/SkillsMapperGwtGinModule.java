@@ -45,7 +45,7 @@ public class SkillsMapperGwtGinModule extends AbstractGinModule {
 
     @Singleton
     @Provides
-    PlaceController providePlaceController(com.google.web.bindery.event.shared.EventBus eventBus) {
+    PlaceController providePlaceController(EventBus eventBus) {
         return new PlaceController(eventBus);
     }
 
