@@ -3,7 +3,7 @@ When contributing to this repository, please first discuss the change you wish t
 email, or any other method with the owners of this repository before making a change.
 
 ## Pull Request Process
-Please first mmake a branch and when completed create a pull request.
+Please first make a branch and when completed create a pull request.
 
 ## Standards
 Please follow the following standards when contributing:
