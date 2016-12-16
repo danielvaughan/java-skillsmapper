@@ -13,6 +13,7 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
+import org.codetaming.skillsmapper.client.controllers.NavigationController;
 import org.codetaming.skillsmapper.client.places.DefaultPlace;
 import org.codetaming.skillsmapper.client.places.PeoplePlace;
 import org.codetaming.skillsmapper.client.places.SkillsMapperPlaceHistoryMapper;
@@ -30,6 +31,7 @@ public class SkillsMapperGwtGinModule extends AbstractGinModule {
     protected void configure() {
         bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
         bind(LoggingController.class).in(Singleton.class);
+        bind(NavigationController.class).in(Singleton.class);
         bind(MainPanel.class).in(Singleton.class);
         bind(SkillsWidget.class).in(Singleton.class);
         bind(PeopleListWidget.class).in(Singleton.class);

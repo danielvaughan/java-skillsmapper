@@ -49,6 +49,7 @@ public class SkillsMapperGwt implements EntryPoint {
             final SkillsMapperGwtAppGinjector injector = GWT.create(SkillsMapperGwtAppGinjector.class);
             injector.inject(this);
             injector.getLoggingController();
+            injector.getNavigationController();
             useCorrectRequestBaseUrl();
             RootPanel.get().add(injector.getMainPanel());
             historyHandler.handleCurrentHistory();

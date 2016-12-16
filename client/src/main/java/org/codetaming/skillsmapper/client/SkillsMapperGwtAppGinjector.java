@@ -5,6 +5,7 @@ import com.google.gwt.inject.client.Ginjector;
 import com.google.web.bindery.event.shared.EventBus;
 
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
+import org.codetaming.skillsmapper.client.controllers.NavigationController;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
 import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
@@ -30,4 +31,6 @@ public interface SkillsMapperGwtAppGinjector extends Ginjector, SkillsMapperPlac
     SkillsWidget getSkillsWidget();
 
     LoggingController getLoggingController();
+
+    NavigationController getNavigationController();
 }

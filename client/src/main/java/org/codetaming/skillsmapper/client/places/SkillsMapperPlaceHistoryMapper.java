@@ -16,5 +16,6 @@ public interface SkillsMapperPlaceHistoryMapper extends PlaceHistoryMapperWithFa
     @ImplementedBy(SkillsMapperGwtAppGinjector.class)
     interface SkillsMapperPlaceTokenizers {
         PeoplePlace.Tokenizer peopleTokenizer();
+        ProfilePlace.Tokenizer profileTokenizer();
     }
 }

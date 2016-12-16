@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 import java.util.logging.Logger;
 
-public class PeoplePresenter extends AbstractActivity {
+public class ProfilePresenter extends AbstractActivity {
 
     private static final Logger LOGGER = Logger.getLogger("PeoplePresenter");
 
