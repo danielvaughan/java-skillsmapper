@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class LoggingController implements SelectPersonEventHandler {
 
-    private static final Logger LOGGER = Logger.getLogger("LoggingController");
+    private static final Logger LOGGER = Logger.getLogger(LoggingController.class.getName());
 
     private final EventBus eventBus;
 

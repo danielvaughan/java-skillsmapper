@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public abstract class ProtoWidget extends Composite implements CanDisable {
 
-    private static final Logger LOGGER = Logger.getLogger("ProtoWidget");
+    private static final Logger LOGGER = Logger.getLogger(ProtoWidget.class.getName());
 
     protected boolean enabled = true;
 

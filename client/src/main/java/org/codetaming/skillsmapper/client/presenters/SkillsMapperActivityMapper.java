@@ -8,13 +8,18 @@ import com.google.inject.Inject;
 import org.codetaming.skillsmapper.client.places.PeoplePlace;
 import org.codetaming.skillsmapper.client.places.ProfilePlace;
 
+import java.util.logging.Logger;
+
 public class SkillsMapperActivityMapper implements ActivityMapper {
+
+    private static final Logger LOGGER = Logger.getLogger(SkillsMapperActivityMapper.class.getName());
 
     @Inject
     ActivityFactory factory;
 
     @Override
     public Activity getActivity(Place place) {
+        LOGGER.info("getActivity: " + place.toString());
         if (place instanceof PeoplePlace) {
             return factory.createPeoplePresenter((PeoplePlace) place);
         }

@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 
 public class PeopleListWidget extends Composite {
 
-    private static final Logger LOGGER = Logger.getLogger("PeopleListWidget");
+    private static final Logger LOGGER = Logger.getLogger(PeopleListWidget.class.getName());
 
     private static Binder uiBinder = GWT.create(Binder.class);
     private final EventBus eventBus;

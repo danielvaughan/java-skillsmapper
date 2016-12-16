@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 public class ProfileDetailsWidget extends ProtoWidget {
 
-    private static final Logger LOGGER = Logger.getLogger("ProfileDetailsWidget");
+    private static final Logger LOGGER = Logger.getLogger(ProfileDetailsWidget.class.getName());
 
     private static final String DEFAULT_PHOTO_URL = "http://common.gcscc.site/img/silhouette.png";
 

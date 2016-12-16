@@ -10,8 +10,7 @@
             <b:PanelBody addStyleNames="scrollable">
                 <b:Container fluid="true">
                     <b:Row>
-                        <w:ProfileDetailsWidget
-                                ui:field="profileDetailsWidget"></w:ProfileDetailsWidget>
+                        <w:ProfileDetailsWidget ui:field="profileDetailsWidget"></w:ProfileDetailsWidget>
                     </b:Row>
                     <b:Row>
                         <b:Heading size="H5" text=""/>

@@ -19,8 +19,10 @@ import java.util.logging.Logger;
 
 public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandler {
 
-    private static final Logger LOGGER = Logger.getLogger("SkillsWidget");
+    private static final Logger LOGGER = Logger.getLogger(SkillsWidget.class.getName());
+
     private static Binder uiBinder = GWT.create(Binder.class);
+
     @UiField
     TagBoxWidget interestedTagBoxWidget;
     @UiField
@@ -29,7 +31,9 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
     TagBoxWidget usingTagBoxWidget;
     @UiField
     TagBoxWidget usedTagBoxWidget;
+
     private PeopleService peopleService = GWT.create(PeopleService.class);
+
     private EventBus eventBus;
 
     @Inject

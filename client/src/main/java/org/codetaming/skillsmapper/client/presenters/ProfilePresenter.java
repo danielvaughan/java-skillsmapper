@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class ProfilePresenter extends AbstractActivity {
 
-    private static final Logger LOGGER = Logger.getLogger("PeoplePresenter");
+    private static final Logger LOGGER = Logger.getLogger(PeoplePresenter.class.getName());
 
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {

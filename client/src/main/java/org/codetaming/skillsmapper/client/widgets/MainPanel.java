@@ -1,4 +1,4 @@
-package org.codetaming.skillsmapper.client;
+package org.codetaming.skillsmapper.client.widgets;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -14,7 +14,9 @@ import org.codetaming.skillsmapper.client.views.ProfileViewWidget;
 public class MainPanel extends Composite {
 
     private static Binder uiBinder = GWT.create(Binder.class);
+
     private final EventBus eventBus;
+
     @UiField(provided = true)
     PeopleViewWidget peopleViewWidget;
     @UiField(provided = true)

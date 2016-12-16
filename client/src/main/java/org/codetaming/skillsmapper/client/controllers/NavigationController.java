@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class NavigationController implements SelectPersonEventHandler {
 
-    private static final Logger LOGGER = Logger.getLogger("NavigationController");
+    private static final Logger LOGGER = Logger.getLogger(NavigationController.class.getName());
 
     private final EventBus eventBus;
 

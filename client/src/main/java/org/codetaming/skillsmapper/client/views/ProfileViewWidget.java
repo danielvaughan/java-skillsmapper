@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventHandler {
 
-    private static final Logger LOGGER = Logger.getLogger("ProfileViewWidget");
+    private static final Logger LOGGER = Logger.getLogger(ProfileViewWidget.class.getName());
 
     private static Binder uiBinder = GWT.create(ProfileViewWidget.Binder.class);
     private final EventBus eventBus;

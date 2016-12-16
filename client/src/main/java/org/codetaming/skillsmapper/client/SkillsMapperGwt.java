@@ -6,7 +6,7 @@ import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.inject.Inject;
-
+import org.codetaming.skillsmapper.client.widgets.AppShell;
 import org.fusesource.restygwt.client.Defaults;
 
 import java.util.logging.Level;
@@ -14,18 +14,13 @@ import java.util.logging.Logger;
 
 public class SkillsMapperGwt implements EntryPoint {
 
-    private static final Logger LOGGER = Logger.getLogger("SkillsMapperGwt");
+    private static final Logger LOGGER = Logger.getLogger(SkillsMapperGwt.class.getName());
 
     private final SkillsMapperConstants skillsMapperConstants = GWT.create(SkillsMapperConstants.class);
 
     @Inject
     PlaceHistoryHandler historyHandler;
 
-    /**
-     * Detect if the app is in development mode.
-     *
-     * @return true if in development mode
-     */
     private static native boolean isDevelopmentMode()/*-{
         return typeof $wnd.__gwt_sdm !== 'undefined';
     }-*/;
@@ -51,8 +46,11 @@ public class SkillsMapperGwt implements EntryPoint {
             injector.getLoggingController();
             injector.getNavigationController();
             useCorrectRequestBaseUrl();
-            RootPanel.get().add(injector.getMainPanel());
+            AppShell appShell = injector.getAppShell();
+            RootPanel.get().add(appShell);
+            appShell.setWidget(injector.getMainPanel());
             historyHandler.handleCurrentHistory();
+
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error in onModuleLoad2 \n", e);
         }

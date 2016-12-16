@@ -17,7 +17,8 @@ import java.util.logging.Logger;
 
 public class TagBoxWidget extends ProtoWidget {
 
-    private static final Logger LOGGER = Logger.getLogger("TagBoxWidget");
+    private static final Logger LOGGER = Logger.getLogger(TagBoxWidget.class.getName());
+
     private static Binder uiBinder = GWT.create(Binder.class);
 
     @UiField
