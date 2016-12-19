@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.2.RELEASE'
+        springBootVersion = '1.4.0.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -15,7 +15,7 @@ subprojects {
 
     apply plugin: 'java'
     apply plugin: 'eclipse'
-    apply plugin: 'org.springframework.boot'
+    apply plugin: 'spring-boot'
     apply plugin: 'cloudfoundry'
 
     sourceCompatibility = 1.8
