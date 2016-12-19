@@ -1,13 +1,17 @@
 package org.codetaming.skillsmapper.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.neo4j.ogm.annotation.GraphId;
 
 public abstract class Entity {
 
-    @GraphId
-    Long id;
+    @JsonIgnore
     protected Long created;
     protected String name;
+    @GraphId
+    @JsonIgnore
+    Long id;
 
     public Long getId() {
         return id;

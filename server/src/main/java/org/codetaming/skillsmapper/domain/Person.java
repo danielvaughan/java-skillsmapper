@@ -1,5 +1,7 @@
 package org.codetaming.skillsmapper.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
@@ -10,6 +12,8 @@ import java.util.Set;
 public class Person extends Entity {
 
     private String imageUrl;
+
+    @JsonIgnore
     private String hash;
 
     @Relationship(type = "I_AM_INTERESTED_IN", direction = Relationship.OUTGOING)
