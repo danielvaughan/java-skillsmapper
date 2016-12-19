@@ -3,10 +3,14 @@ package org.codetaming.skillsmapper.client;
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
 import com.google.web.bindery.event.shared.EventBus;
+
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.controllers.NavigationController;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
-import org.codetaming.skillsmapper.client.widgets.*;
+import org.codetaming.skillsmapper.client.widgets.MainPanel;
+import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
+import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
+import org.codetaming.skillsmapper.client.widgets.SkillsWidget;
 
 import static org.codetaming.skillsmapper.client.places.SkillsMapperPlaceHistoryMapper.SkillsMapperPlaceTokenizers;
 
@@ -18,8 +22,6 @@ public interface SkillsMapperGwtAppGinjector extends Ginjector, SkillsMapperPlac
     EventBus getEventBus();
 
     MainPanel getMainPanel();
-
-    AppShell getAppShell();
 
     ProfileDetailsWidget getProfileDetailsWidget();
 

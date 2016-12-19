@@ -1,11 +1,11 @@
 package org.codetaming.skillsmapper.client.events;
 
+import com.google.gwt.event.shared.EventHandler;
 import com.google.gwt.event.shared.GwtEvent;
 
-public class SelectPersonEvent extends GwtEvent<SelectPersonEventHandler> {
+public class SelectPersonEvent extends GwtEvent<SelectPersonEvent.Handler> {
 
-    public static final Type<SelectPersonEventHandler> TYPE = new Type<>();
-
+    public static final Type<Handler> TYPE = new Type<>();
     private final String uri;
 
     public SelectPersonEvent(String uri) {
@@ -21,13 +21,13 @@ public class SelectPersonEvent extends GwtEvent<SelectPersonEventHandler> {
     }
 
     @Override
-    public Type<SelectPersonEventHandler> getAssociatedType() {
+    public Type<Handler> getAssociatedType() {
         return TYPE;
     }
 
     @Override
-    protected void dispatch(SelectPersonEventHandler selectPersonEventHandler) {
-        selectPersonEventHandler.onSelectPerson(this);
+    protected void dispatch(Handler handler) {
+        handler.onSelectPerson(this);
     }
 
     @Override
@@ -35,5 +35,10 @@ public class SelectPersonEvent extends GwtEvent<SelectPersonEventHandler> {
         return "SelectPersonEvent{" +
                 "uri=" + uri +
                 '}';
+    }
+
+    public interface Handler extends EventHandler {
+
+        void onSelectPerson(SelectPersonEvent selectPersonEvent);
     }
 }

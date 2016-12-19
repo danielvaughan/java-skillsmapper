@@ -6,7 +6,7 @@ import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.inject.Inject;
-import org.codetaming.skillsmapper.client.widgets.AppShell;
+
 import org.fusesource.restygwt.client.Defaults;
 
 import java.util.logging.Level;
@@ -46,9 +46,7 @@ public class SkillsMapperGwt implements EntryPoint {
             injector.getLoggingController();
             injector.getNavigationController();
             useCorrectRequestBaseUrl();
-            AppShell appShell = injector.getAppShell();
-            RootPanel.get().add(appShell);
-            appShell.setWidget(injector.getMainPanel());
+            RootPanel.get().add(injector.getMainPanel());
             historyHandler.handleCurrentHistory();
 
         } catch (Exception e) {

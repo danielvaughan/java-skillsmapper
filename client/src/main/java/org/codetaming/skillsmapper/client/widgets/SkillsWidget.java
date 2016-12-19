@@ -7,8 +7,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 
-import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
-import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
+import org.codetaming.skillsmapper.client.events.ProfileSelectedEvent;
 import org.codetaming.skillsmapper.client.model.Person;
 import org.codetaming.skillsmapper.client.model.TagsWrapper;
 import org.codetaming.skillsmapper.client.services.PeopleService;
@@ -17,7 +16,7 @@ import org.fusesource.restygwt.client.MethodCallback;
 
 import java.util.logging.Logger;
 
-public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandler {
+public class SkillsWidget extends ProtoWidget implements ProfileSelectedEvent.Handler {
 
     private static final Logger LOGGER = Logger.getLogger(SkillsWidget.class.getName());
 
@@ -52,12 +51,15 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
     }
 
     private void initListeners() {
-        eventBus.addHandler(SelectPersonEvent.TYPE, this);
+        eventBus.addHandler(ProfileSelectedEvent.TYPE, this);
+    }
+
+    public void showPerson(Person person) {
     }
 
     @Override
-    public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
-        String id = selectPersonEvent.getId();
+    public void onProfileSelected(ProfileSelectedEvent profileSelectedEvent) {
+        String id = profileSelectedEvent.getId();
         peopleService.getInterested(id, new MethodCallback<TagsWrapper>() {
             @Override
             public void onFailure(Method method, Throwable exception) {
@@ -106,9 +108,6 @@ public class SkillsWidget extends ProtoWidget implements SelectPersonEventHandle
                 usedTagBoxWidget.setTags(response.get_embedded().getTags());
             }
         });
-    }
-
-public void showPerson(Person person) {
     }
 
     interface Binder extends UiBinder<Widget, SkillsWidget> {

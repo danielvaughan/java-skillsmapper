@@ -7,8 +7,8 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 
-import org.codetaming.skillsmapper.client.events.SelectPersonEvent;
-import org.codetaming.skillsmapper.client.events.SelectPersonEventHandler;
+import org.codetaming.skillsmapper.client.events.PeopleSelectedEvent;
+import org.codetaming.skillsmapper.client.events.ProfileSelectedEvent;
 import org.codetaming.skillsmapper.client.model.GroupsWrapper;
 import org.codetaming.skillsmapper.client.model.Person;
 import org.codetaming.skillsmapper.client.model.TitlesWrapper;
@@ -21,7 +21,7 @@ import org.fusesource.restygwt.client.MethodCallback;
 
 import java.util.logging.Logger;
 
-public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventHandler {
+public class ProfileViewWidget extends ProtoWidget implements PeopleSelectedEvent.Handler, ProfileSelectedEvent.Handler {
 
     private static final Logger LOGGER = Logger.getLogger(ProfileViewWidget.class.getName());
 
@@ -43,15 +43,8 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
     }
 
     private void initListeners() {
-        eventBus.addHandler(SelectPersonEvent.TYPE, this);
-    }
-
-    @Override
-    public void onSelectPerson(SelectPersonEvent selectPersonEvent) {
-        String id = selectPersonEvent.getId();
-        loadPerson(id);
-        loadGroups(id);
-        loadTitles(id);
+        eventBus.addHandler(ProfileSelectedEvent.TYPE, this);
+        eventBus.addHandler(PeopleSelectedEvent.TYPE, this);
     }
 
     private void loadTitles(String id) {
@@ -98,6 +91,20 @@ public class ProfileViewWidget extends ProtoWidget implements SelectPersonEventH
                 skillsWidget.showPerson(person);
             }
         });
+    }
+
+    @Override
+    public void onProfileSelected(ProfileSelectedEvent profileSelectedEvent) {
+        setVisible(true);
+        String id = profileSelectedEvent.getId();
+        loadPerson(id);
+        loadGroups(id);
+        loadTitles(id);
+    }
+
+    @Override
+    public void onPeopleSelected(PeopleSelectedEvent peopleSelectedEvent) {
+        setVisible(false);
     }
 
     interface Binder extends UiBinder<Widget, ProfileViewWidget> {

@@ -16,6 +16,13 @@ public class ProfilePlace extends Place {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "ProfilePlace{" +
+                "id='" + id + '\'' +
+                '}';
+    }
+
     @Prefix("profile")
     public static class Tokenizer implements PlaceTokenizer<ProfilePlace> {
 

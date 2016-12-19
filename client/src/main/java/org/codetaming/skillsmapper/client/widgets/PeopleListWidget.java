@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 
+import org.codetaming.skillsmapper.client.events.PeopleSelectedEvent;
 import org.codetaming.skillsmapper.client.model.PeopleWrapper;
 import org.codetaming.skillsmapper.client.services.PeopleService;
 import org.fusesource.restygwt.client.Method;
@@ -16,7 +17,7 @@ import org.gwtbootstrap3.client.ui.LinkedGroup;
 
 import java.util.logging.Logger;
 
-public class PeopleListWidget extends Composite {
+public class PeopleListWidget extends Composite implements PeopleSelectedEvent.Handler {
 
     private static final Logger LOGGER = Logger.getLogger(PeopleListWidget.class.getName());
 
@@ -29,7 +30,11 @@ public class PeopleListWidget extends Composite {
     public PeopleListWidget(final EventBus eventBus) {
         this.eventBus = eventBus;
         initWidget(uiBinder.createAndBindUi(this));
-        reload();
+        initListeners();
+    }
+
+    private void initListeners() {
+        eventBus.addHandler(PeopleSelectedEvent.TYPE, this);
     }
 
     private void reload() {
@@ -48,6 +53,11 @@ public class PeopleListWidget extends Composite {
                 });
             }
         });
+    }
+
+    @Override
+    public void onPeopleSelected(PeopleSelectedEvent peopleSelectedEvent) {
+        reload();
     }
 
     interface Binder extends UiBinder<Widget, PeopleListWidget> {

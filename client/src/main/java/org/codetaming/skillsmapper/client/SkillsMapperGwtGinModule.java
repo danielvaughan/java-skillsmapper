@@ -1,9 +1,6 @@
 package org.codetaming.skillsmapper.client;
 
-import com.google.gwt.activity.shared.ActivityManager;
-import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.inject.client.AbstractGinModule;
-import com.google.gwt.inject.client.assistedinject.GinFactoryModuleBuilder;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
@@ -12,18 +9,19 @@ import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
+
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.controllers.NavigationController;
 import org.codetaming.skillsmapper.client.places.DefaultPlace;
 import org.codetaming.skillsmapper.client.places.PeoplePlace;
 import org.codetaming.skillsmapper.client.places.SkillsMapperPlaceHistoryMapper;
-import org.codetaming.skillsmapper.client.presenters.SkillsMapperActivityMapper;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
-import org.codetaming.skillsmapper.client.widgets.*;
+import org.codetaming.skillsmapper.client.widgets.MainPanel;
+import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
+import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
+import org.codetaming.skillsmapper.client.widgets.SkillsWidget;
 
 import java.util.logging.Logger;
-
-import static org.codetaming.skillsmapper.client.presenters.SkillsMapperActivityMapper.ActivityFactory;
 
 public class SkillsMapperGwtGinModule extends AbstractGinModule {
 
@@ -39,17 +37,8 @@ public class SkillsMapperGwtGinModule extends AbstractGinModule {
         bind(PeopleListWidget.class).in(Singleton.class);
         bind(PeopleViewWidget.class).in(Singleton.class);
         bind(ProfileDetailsWidget.class).in(Singleton.class);
-        bind(AppShell.class).in(Singleton.class);
         bind(Place.class).annotatedWith(DefaultPlace.class).to(PeoplePlace.class);
-        bind(ActivityMapper.class).to(SkillsMapperActivityMapper.class);
         bind(PlaceHistoryMapper.class).to(SkillsMapperPlaceHistoryMapper.class);
-        install(new GinFactoryModuleBuilder().build(ActivityFactory.class));
-    }
-
-    @Singleton
-    @Provides
-    ActivityManager provideActivityManager(ActivityMapper mapper, EventBus eventBus) {
-        return new ActivityManager(mapper, eventBus);
     }
 
     @Singleton

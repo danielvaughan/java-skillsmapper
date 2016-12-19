@@ -7,6 +7,11 @@ import com.google.gwt.place.shared.Prefix;
 @DefaultPlace
 public class PeoplePlace extends Place {
 
+    @Override
+    public String toString() {
+        return "PeoplePlace{}";
+    }
+
     @Prefix("")
     public static class Tokenizer implements PlaceTokenizer<PeoplePlace> {
 
@@ -20,5 +25,4 @@ public class PeoplePlace extends Place {
             return "people";
         }
     }
-
 }
