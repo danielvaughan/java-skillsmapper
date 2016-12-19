@@ -9,6 +9,6 @@
 
 ## Deploy URL
 
-* Server: [http://skills-mapper-server.cfapps.io] (http://skills-mapper-server.cfapps.io)
-* Client: [http://skills-mapper-client.cfapps.io] (http://skills-mapper-client.cfapps.io)
+* Server: [http://api.skillsmapper.site] (http://api.skillsmapper.site)
+* Client: [http://app.skillsmapper.site] (http://app.skillsmapper.site)
 
