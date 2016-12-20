@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableScheduling
 @Configuration
 @EnableNeo4jRepositories(basePackages = "org.codetaming.skillsmapper.repositories")
-public class MyNeo4jConfiguration extends Neo4jConfiguration {
+public class SkillsMapperNeo4jConfiguration extends Neo4jConfiguration {
 
     public static final String URL = System.getenv("NEO4J_URL") != null ? System.getenv("NEO4J_URL") : "http://neo4j:neo4j@localhost:7474";
 

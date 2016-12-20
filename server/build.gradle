@@ -9,6 +9,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-neo4j')
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-devtools")
+    compile("com.auth0:auth0-spring-security-api:0.3.2")
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
