@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 
+import org.codetaming.skillsmapper.client.auth0.widgets.LoginButton;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
 import org.codetaming.skillsmapper.client.views.ProfileViewWidget;
 
@@ -21,6 +22,8 @@ public class MainPanel extends Composite {
     PeopleViewWidget peopleViewWidget;
     @UiField(provided = true)
     ProfileViewWidget profileViewWidget;
+    @UiField
+    LoginButton loginButton;
 
     @Inject
     public MainPanel(final EventBus eventBus, final PeopleViewWidget peopleViewWidget, final ProfileViewWidget profileViewWidget) {

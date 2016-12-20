@@ -4,6 +4,7 @@ import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
 import com.google.web.bindery.event.shared.EventBus;
 
+import org.codetaming.skillsmapper.client.auth0.Auth0;
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.controllers.NavigationController;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
@@ -18,6 +19,8 @@ import static org.codetaming.skillsmapper.client.places.SkillsMapperPlaceHistory
 public interface SkillsMapperGwtAppGinjector extends Ginjector, SkillsMapperPlaceTokenizers {
 
     void inject(SkillsMapperGwt skillsMapperGwt);
+
+    Auth0 getAuth0();
 
     EventBus getEventBus();
 

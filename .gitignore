@@ -85,3 +85,7 @@ gradle-app.setting
 /setenv.sh
 /server/src/main/resources/auth0.properties
 !/server/src/main/resources/auth0.properties
+/client/src/main/resources/static/app.js
+/client/src/main/resources/static/js/auth0-variables.js
+/client/src/main/resources/static/login.html
+/client/src/main/resources/static/js/
