@@ -84,3 +84,4 @@ gradle-app.setting
 /src/main/resources/ogm.properties
 /setenv.sh
 /server/src/main/resources/auth0.properties
+!/server/src/main/resources/auth0.properties
