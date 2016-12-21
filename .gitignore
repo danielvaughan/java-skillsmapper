@@ -89,3 +89,4 @@ gradle-app.setting
 /client/src/main/resources/static/js/auth0-variables.js
 /client/src/main/resources/static/login.html
 /client/src/main/resources/static/js/
+/server/src/main/resources/certificate/
