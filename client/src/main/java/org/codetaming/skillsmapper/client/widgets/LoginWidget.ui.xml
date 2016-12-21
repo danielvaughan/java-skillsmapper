@@ -3,5 +3,6 @@
              xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
     <b:NavbarForm ui:field="navbarLogin" pull="RIGHT" visible="true">
         <b:Button ui:field="loginButton" icon="SIGN_IN">Login</b:Button>
+        <b:Button ui:field="logoutButton" icon="SIGN_OUT" visible="false">Logout</b:Button>
     </b:NavbarForm>
 </ui:UiBinder>

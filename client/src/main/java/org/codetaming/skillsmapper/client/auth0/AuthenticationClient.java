@@ -6,5 +6,7 @@ public interface AuthenticationClient {
 
     void logout();
 
-    void retrieveProfile();
+    String getToken();
+
+    boolean isLoggedIn();
 }
