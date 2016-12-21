@@ -25,6 +25,8 @@ public class SkillsMapperSecurityConfiguration extends Auth0SecurityConfig {
     @Override
     protected void authorizeRequests(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/profile/*").permitAll()
+                .antMatchers("/").permitAll()
                 .anyRequest().authenticated();
     }
 
