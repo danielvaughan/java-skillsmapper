@@ -2,7 +2,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
              xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
              xmlns:v="urn:import:org.codetaming.skillsmapper.client.views"
-             xmlns:w="urn:import:org.codetaming.skillsmapper.client.auth0.widgets">
+             xmlns:w="urn:import:org.codetaming.skillsmapper.client.widgets">
     <b:Container fluid="true">
         <b:Navbar position="FIXED_TOP">
             <b:Container fluid="true">
@@ -13,7 +13,7 @@
                 </b:NavbarHeader>
                 <b:NavbarCollapse b:id="navbar-collapse">
                     <b:NavbarForm ui:field="navbarLogin" pull="RIGHT" visible="true">
-                        <w:LoginButton ui:field="loginButton"/>
+                        <w:LoginWidget ui:field="loginWidget"/>
                     </b:NavbarForm>
                 </b:NavbarCollapse>
             </b:Container>

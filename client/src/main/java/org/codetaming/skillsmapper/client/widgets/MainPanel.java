@@ -8,7 +8,6 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 
-import org.codetaming.skillsmapper.client.auth0.widgets.LoginButton;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
 import org.codetaming.skillsmapper.client.views.ProfileViewWidget;
 
@@ -22,14 +21,15 @@ public class MainPanel extends Composite {
     PeopleViewWidget peopleViewWidget;
     @UiField(provided = true)
     ProfileViewWidget profileViewWidget;
-    @UiField
-    LoginButton loginButton;
+    @UiField(provided = true)
+    LoginWidget loginWidget;
 
     @Inject
-    public MainPanel(final EventBus eventBus, final PeopleViewWidget peopleViewWidget, final ProfileViewWidget profileViewWidget) {
+    public MainPanel(final EventBus eventBus, final PeopleViewWidget peopleViewWidget, final ProfileViewWidget profileViewWidget, final LoginWidget loginWidget) {
         this.eventBus = eventBus;
         this.peopleViewWidget = peopleViewWidget;
         this.profileViewWidget = profileViewWidget;
+        this.loginWidget = loginWidget;
         initWidget(uiBinder.createAndBindUi(this));
     }
 

@@ -45,7 +45,7 @@ public class SkillsMapperGwt implements EntryPoint {
             injector.inject(this);
             injector.getLoggingController();
             injector.getNavigationController();
-            injector.getAuth0();
+            injector.getAuthenticationClient();
             useCorrectRequestBaseUrl();
             RootPanel.get().add(injector.getMainPanel());
             historyHandler.handleCurrentHistory();

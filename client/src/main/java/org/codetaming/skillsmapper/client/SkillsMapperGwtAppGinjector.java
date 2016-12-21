@@ -4,7 +4,7 @@ import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
 import com.google.web.bindery.event.shared.EventBus;
 
-import org.codetaming.skillsmapper.client.auth0.Auth0;
+import org.codetaming.skillsmapper.client.auth0.AuthenticationClient;
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.controllers.NavigationController;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
@@ -20,7 +20,7 @@ public interface SkillsMapperGwtAppGinjector extends Ginjector, SkillsMapperPlac
 
     void inject(SkillsMapperGwt skillsMapperGwt);
 
-    Auth0 getAuth0();
+    AuthenticationClient getAuthenticationClient();
 
     EventBus getEventBus();
 

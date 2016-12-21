@@ -10,13 +10,15 @@ import com.google.inject.Singleton;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 
-import org.codetaming.skillsmapper.client.auth0.Auth0;
+import org.codetaming.skillsmapper.client.auth0.Auth0Client;
+import org.codetaming.skillsmapper.client.auth0.AuthenticationClient;
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.controllers.NavigationController;
 import org.codetaming.skillsmapper.client.places.DefaultPlace;
 import org.codetaming.skillsmapper.client.places.PeoplePlace;
 import org.codetaming.skillsmapper.client.places.SkillsMapperPlaceHistoryMapper;
 import org.codetaming.skillsmapper.client.views.PeopleViewWidget;
+import org.codetaming.skillsmapper.client.widgets.LoginWidget;
 import org.codetaming.skillsmapper.client.widgets.MainPanel;
 import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
@@ -33,12 +35,13 @@ public class SkillsMapperGwtGinModule extends AbstractGinModule {
         bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
         bind(LoggingController.class).in(Singleton.class);
         bind(NavigationController.class).in(Singleton.class);
+        bind(LoginWidget.class).in(Singleton.class);
         bind(MainPanel.class).in(Singleton.class);
         bind(SkillsWidget.class).in(Singleton.class);
         bind(PeopleListWidget.class).in(Singleton.class);
         bind(PeopleViewWidget.class).in(Singleton.class);
         bind(ProfileDetailsWidget.class).in(Singleton.class);
-        bind(Auth0.class).in(Singleton.class);
+        bind(AuthenticationClient.class).to(Auth0Client.class).in(Singleton.class);
         bind(Place.class).annotatedWith(DefaultPlace.class).to(PeoplePlace.class);
         bind(PlaceHistoryMapper.class).to(SkillsMapperPlaceHistoryMapper.class);
     }
