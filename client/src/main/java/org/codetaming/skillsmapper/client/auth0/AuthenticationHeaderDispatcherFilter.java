@@ -19,11 +19,8 @@ public class AuthenticationHeaderDispatcherFilter implements DispatcherFilter {
 
     @Override
     public boolean filter(Method method, RequestBuilder builder) {
-        builder.setHeader(AUTHORIZATION_HEADER, createAuthenticationHeader());
+        builder.setHeader(AUTHORIZATION_HEADER, "Bearer " + authenticationClient.getToken());
         return true;
     }
 
-    private String createAuthenticationHeader() {
-        return AUTHORIZATION_HEADER + ": Bearer " + authenticationClient.getToken();
-    }
 }
