@@ -3,7 +3,6 @@ package org.codetaming.skillsmapper;
 import org.neo4j.ogm.session.SessionFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.neo4j.config.Neo4jConfiguration;
@@ -12,7 +11,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement
 @EnableAutoConfiguration
-@ComponentScan(basePackages = {"org.codetaming.skillsmapper.services"})
 @Configuration
 @EnableNeo4jRepositories(basePackages = "org.codetaming.skillsmapper.repositories")
 @Profile({"embedded", "test"})
