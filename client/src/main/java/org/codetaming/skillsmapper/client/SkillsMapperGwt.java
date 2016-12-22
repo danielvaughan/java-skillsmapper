@@ -46,6 +46,7 @@ public class SkillsMapperGwt implements EntryPoint {
             injector.getLoggingController();
             injector.getNavigationController();
             useCorrectRequestBaseUrl();
+            configureRestyGWT(injector);
             RootPanel.get().add(injector.getMainPanel());
             historyHandler.handleCurrentHistory();
 
@@ -54,9 +55,14 @@ public class SkillsMapperGwt implements EntryPoint {
         }
     }
 
+    private void configureRestyGWT(SkillsMapperGwtAppGinjector injector) {
+        Defaults.setDispatcher(injector.getDispatcher());
+        Defaults.setAddXHttpMethodOverrideHeader(false);
+    }
+
     private void useCorrectRequestBaseUrl() {
         String serverBaseUrl;
-        if (isDevelopmentMode()) {
+        if (true) {
             serverBaseUrl = skillsMapperConstants.localServerBaseUrl();
         } else {
             serverBaseUrl = skillsMapperConstants.serverBaseUrl();

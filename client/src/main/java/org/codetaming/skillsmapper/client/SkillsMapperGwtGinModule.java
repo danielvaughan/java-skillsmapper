@@ -11,7 +11,9 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 
 import org.codetaming.skillsmapper.client.auth0.Auth0Client;
+import org.codetaming.skillsmapper.client.auth0.Auth0Dispatcher;
 import org.codetaming.skillsmapper.client.auth0.AuthenticationClient;
+import org.codetaming.skillsmapper.client.auth0.AuthenticationHeaderDispatcherFilter;
 import org.codetaming.skillsmapper.client.controllers.LoggingController;
 import org.codetaming.skillsmapper.client.controllers.NavigationController;
 import org.codetaming.skillsmapper.client.places.DefaultPlace;
@@ -23,6 +25,8 @@ import org.codetaming.skillsmapper.client.widgets.MainPanel;
 import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
 import org.codetaming.skillsmapper.client.widgets.SkillsWidget;
+import org.fusesource.restygwt.client.Dispatcher;
+import org.fusesource.restygwt.client.dispatcher.DispatcherFilter;
 
 import java.util.logging.Logger;
 
@@ -44,6 +48,8 @@ public class SkillsMapperGwtGinModule extends AbstractGinModule {
         bind(AuthenticationClient.class).to(Auth0Client.class).in(Singleton.class);
         bind(Place.class).annotatedWith(DefaultPlace.class).to(PeoplePlace.class);
         bind(PlaceHistoryMapper.class).to(SkillsMapperPlaceHistoryMapper.class);
+        bind(Dispatcher.class).to(Auth0Dispatcher.class).in(Singleton.class);
+        bind(DispatcherFilter.class).to(AuthenticationHeaderDispatcherFilter.class).in(Singleton.class);
     }
 
     @Singleton

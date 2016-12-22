@@ -101,7 +101,7 @@ public class Auth0Client implements AuthenticationClient {
             if (err) {
                 return alert('There was an error getting the profile: ' + err.message);
             }
-            var profileStr = JSON.stringify(profile);
+            this.@org.codetaming.skillsmapper.client.auth0.Auth0Client::storeProfile(Ljava/lang/String;)(profile.name);
         });
     }-*/;
 

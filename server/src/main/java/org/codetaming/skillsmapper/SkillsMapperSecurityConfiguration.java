@@ -31,7 +31,7 @@ public class SkillsMapperSecurityConfiguration extends Auth0SecurityConfig {
         http.authorizeRequests()
                 .antMatchers("/profile/**").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers("/people").authenticated();
+                .antMatchers("/people/**").authenticated();
     }
 
 }

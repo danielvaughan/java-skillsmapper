@@ -12,6 +12,7 @@ import org.codetaming.skillsmapper.client.widgets.MainPanel;
 import org.codetaming.skillsmapper.client.widgets.PeopleListWidget;
 import org.codetaming.skillsmapper.client.widgets.ProfileDetailsWidget;
 import org.codetaming.skillsmapper.client.widgets.SkillsWidget;
+import org.fusesource.restygwt.client.Dispatcher;
 
 import static org.codetaming.skillsmapper.client.places.SkillsMapperPlaceHistoryMapper.SkillsMapperPlaceTokenizers;
 
@@ -37,4 +38,6 @@ public interface SkillsMapperGwtAppGinjector extends Ginjector, SkillsMapperPlac
     LoggingController getLoggingController();
 
     NavigationController getNavigationController();
+
+    Dispatcher getDispatcher();
 }
