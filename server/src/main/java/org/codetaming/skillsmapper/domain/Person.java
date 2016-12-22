@@ -16,6 +16,9 @@ public class Person extends Entity {
     @JsonIgnore
     private String hash;
 
+    @JsonIgnore
+    private String email;
+
     @Relationship(type = "I_AM_INTERESTED_IN", direction = Relationship.OUTGOING)
     private Set<Tag> interested = new HashSet<>();
 

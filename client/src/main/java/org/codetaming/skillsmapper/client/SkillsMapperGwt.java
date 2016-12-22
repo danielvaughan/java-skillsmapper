@@ -62,7 +62,7 @@ public class SkillsMapperGwt implements EntryPoint {
 
     private void useCorrectRequestBaseUrl() {
         String serverBaseUrl;
-        if (true) {
+        if (isDevelopmentMode()) {
             serverBaseUrl = skillsMapperConstants.localServerBaseUrl();
         } else {
             serverBaseUrl = skillsMapperConstants.serverBaseUrl();

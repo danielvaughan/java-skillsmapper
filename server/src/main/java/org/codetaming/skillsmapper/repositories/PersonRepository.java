@@ -16,4 +16,6 @@ public interface PersonRepository extends GraphRepository<Person> {
 
     @Query("match (p:Person)-[r]->(t:Tag) where p.name is not null and p.hash is not null return p order by p.name")
     Set<Person> findWithProfile();
+
+    Person findByEmail(String email);
 }
